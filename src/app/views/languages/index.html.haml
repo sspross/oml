@@ -1,0 +1,8 @@
+%h2 Listing languages
+- if !@languages.empty?
+  .languages
+    = render :partial => "language", :collection => @languages
+  = will_paginate(@languages)
+- else
+  %p There are no languages to show yet.
+= link_to 'New language', new_language_path

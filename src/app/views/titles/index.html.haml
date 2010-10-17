@@ -1,0 +1,8 @@
+%h2 Listing titles
+- if !@titles.empty?
+  .titles
+    = render :partial => "title", :collection => @titles
+  = will_paginate(@titles)
+- else
+  %p There are no titles to show yet.
+= link_to 'New title', new_title_path

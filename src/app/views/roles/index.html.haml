@@ -1,0 +1,8 @@
+%h2 Listing roles
+- if !@roles.empty?
+  .roles
+    = render :partial => "role", :collection => @roles
+  = will_paginate(@roles)
+- else
+  %p There are no roles to show yet.
+= link_to 'New role', new_role_path

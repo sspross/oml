@@ -1,0 +1,12 @@
+- form_for(title) do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :language
+    %br
+    = f.collection_select :language_id, @languages, :id, :name
+  %p
+    = f.submit "Submit"

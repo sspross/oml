@@ -1,0 +1,15 @@
+%h2= "Role \"#{@role.to_param}\""
+- content_tag_for :div, @role do
+  %ul{:class => 'attributes'}
+    %li
+      %strong Name:
+      =h @role.name
+    %li
+      %strong Description:
+      =h @role.description
+    %li
+      %strong Deleted:
+      =h @role.deleted
+%ul{:class => 'menu'}
+  %li= link_to 'Edit', edit_role_path(@role)
+  %li= link_to 'Back', roles_path

@@ -1,0 +1,11 @@
+- content_tag_for :div, tag do
+  %ul{:class => 'attributes'}
+    %li
+      %strong Name:
+      =h tag.name
+    %li
+      %strong Image:
+      =h tag.image.id if tag.image
+    = link_to 'Show', tag
+    = link_to 'Edit', edit_tag_path(tag)
+    = link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,10 @@
+de:
+    activerecord:
+        models:
+            role: "Rolle"
+            roles: "Rollen"
+        attributes:
+            role:
+                name: "Name"
+                description: "Beschreibung"
+                deleted: "gelöscht"
