@@ -1,0 +1,11 @@
+- content_tag_for :div, title do
+  %ul{:class => 'attributes'}
+    %li
+      %strong Name:
+      =h title.name
+    %li
+      %strong Language:
+      =h title.language.name
+    = link_to 'Show', title
+    = link_to 'Edit', edit_title_path(title)
+    = link_to 'Destroy', title, :confirm => 'Are you sure?', :method => :delete

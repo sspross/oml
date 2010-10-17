@@ -1,0 +1,8 @@
+%h2 Listing images
+- if !@images.empty?
+  .images
+    = render :partial => "image", :collection => @images
+  = will_paginate(@images)
+- else
+  %p There are no images to show yet.
+= link_to 'New image', new_image_path
