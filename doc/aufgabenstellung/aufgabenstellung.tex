@@ -48,7 +48,7 @@
     \\
     HSZ-T - Technische Hochschule Zürich}
     
-\date{15. Oktober 2010}
+\date{19. Oktober 2010}
 
 \begin{document}
 
@@ -74,6 +74,7 @@
     Viele Personen sind im Besitz von digitalen Medien wie zum Beispiel Filme.
     Im Internet gibt es diverse Plattformen, unter anderem IMDB, um 
     detaillierte Informationen zu diesen Filmen zu finden und sie zu bewerten. 
+    
     Die Inhalte werden jedoch von den Plattformbetreibern gepflegt und die 
     Benutzer haben keine Möglichkeit sich à la Wikipedia einzubringen. Auch 
     basieren die Bewertungen immer auf dem Durchschnitt aller Benutzer. Dies
@@ -86,11 +87,37 @@
     werden, wo Inhalte zu Medien frei erfasst und bearbeitet werden können.
     Als weitere Neuerung sollen Benutzer die Bewertungsanzeige von Medien auf
     frei definierbare Gruppen, wie zum Beispiel ihre Freunde, festlegen 
-    können, um so Bewertungen mit gleichem Geschmack zu sehen. Zusätzlich soll 
-    auch der Code der Plattform öffentlich verfügbar sein, damit auch dieser 
-    von Dritten weiter gepflegt werden kann. Dazu muss die Wahl der
-    Technologien und Tools wohl überlegt sein, damit sich weitere Entwickler
-    finden lassen.
+    können, um so Bewertungen mit gleichem Geschmack zu sehen.
+    
+    Zusätzlich soll auch der Code der Plattform öffentlich verfügbar sein, 
+    damit auch dieser von Dritten weiter gepflegt werden kann. Dazu muss die 
+    Wahl der Technologien und Tools wohl überlegt sein, damit sich weitere 
+    Entwickler finden lassen.
+    
+    Folgende Ziele sollen erreicht werden:
+    
+    \begin{itemize}
+        \item Aus der Analyse der Ausgangslage muss hervorgehen, ob eine
+            Entwicklung einer solchen Plattform berechtigt ist
+        \item Die Plattform muss in der Planungsphase skizziert und
+            zwingende und optionale Features müssen aufgelistet werden
+        \item Technologien und Tools müssen begründet gewählt werden, damit 
+            die Möglichkeit einer Weiterentwicklung durch Dritte hoch ist
+        \item Der Prototyp muss auf dem Internet erreichbar und Modelle
+            müssen über das Webinterface und eine API bearbeitbar sein
+    \end{itemize}
+    
+    Folgende Punkte werden abgegrenzt, da es den Rahmen der Arbeit sprengen 
+    würde:
+    
+    \begin{itemize}
+        \item Die Analysen beschränken sich auf Recherchen im Internet, 
+            Büchern und im näheren Umfeld des Studierenden
+        \item Es werden keine Umfragen, Erhebungen und Feldstudien 
+            durchgeführt
+        \item Der Prototyp wird nur über einen Bruchteil der Funktionalität 
+            der eigentlichen Plattform verfügen
+    \end{itemize}
 
     \section{Aufgabenstellung}
     Die Ausgangslage soll detaillierter erfasst werden. Welche Plattformen
@@ -98,28 +125,43 @@
     Da ein Schwerpunkt der Arbeit auf der öffentlichen Weiterentwicklung der
     neuen Plattform liegt, müssen die Technologien und Projektunterstützenden 
     Tools evaluiert werden.
+    
     Anschliessend soll ein Prototyp mit den gewählten Technologien erstellt
     werden, wo der Ansatz des gemeinsamen Pflegens über das Webinterface und 
     die API demonstriert werden kann.
-
-    \section{Messbare Ziele und erwartete Resultate}
-    Die erwarteten Resultate wurden vom Studierenden festgelegt und mit dem, 
-    zum Zeitpunkt der Formulierung des Antrages, aktuellen 
-    Reglement\cite{reglement} abgeglichen.
     
     \begin{itemize}
-        \item Technischer Bericht zur Ausgangslage und Wahl der 
-            Technologien\footnote{Hochdeutsch, A4, weiss, einseitig 
-    	    bedruckt, zwei gebundene Exemplare und als PDF}
-    	\item Lauffähiger Prototyp
-        \item Präsentation\footnote{25 Minuten Präsentationszeit inklusive 5 
-            Minuten praktischer Vorführung}
-        \item Einhaltung der 6 monatigen Umsetzungsdauer
-        \item Orientierung an den Bewertungskriterien\footnote{Die 
-            Bewertungskriterien basieren auf dem offiziellen 
-            Dokument\cite{bewertungskriterien} der HSZ-T und werden zusammen 
-            mit dem Projektbetreuer noch geringfügig angepasst, um die
-            Bewertung auf die Schwerpunkte der Arbeit zu legen.}
+        \item Analyse der Ausgangslage
+        \item Modellierung der Applikation
+        \item Evaluation der Technologien
+        \item Evaluation der Projektunterstützenden Tools
+        \item Entwicklung eines Prototypen mit den gewählten Technologien
+        \item Definition von Testfällen
+    \end{itemize}
+
+    \section{Erwartete Resultate}
+    Die erwarteten Resultate ergeben sich aus der Aufgabenstellung:
+    
+    \begin{itemize}
+        \item Technischer Bericht\footnote{Hochdeutsch, A4, weiss, einseitig 
+            bedruckt, zwei gebundene Exemplare und als PDF}:
+        \begin{itemize}
+            \item Beschreibung der Ausgangslage
+            \item Modell der Applikation, Erstellung eines ERMs\footnote{
+                Entity-relationship model}
+            \item Begründung der gewählten Technologien
+            \item Begründung der gewählten Tools
+            \item Anmerkungen zur Entwicklung
+            \item Resultate der Testfälle
+        \end{itemize}
+    	\item Lauffähiger Prototyp:
+    	\begin{itemize}
+            \item Mindestens 5 Modelle des ERMs umgesetzt
+            \item Mehrsprachigkeit umgesetzt (Modell- und statische 
+                Inhalte)
+            \item API implementiert, worüber man ebenfalls die mindestens 5 
+                Modelle bearbeiten kann
+        \end{itemize}
     \end{itemize}
 
     \section{Geplante Termine}
