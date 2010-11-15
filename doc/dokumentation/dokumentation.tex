@@ -1,0 +1,189 @@
+%
+%  Semesterarbeit Dokumentation
+%
+%  Created by Silvan Spross on 2010-10-21.
+%
+\documentclass[abstracton,liststotoc,bibtotoc]{scrreprt}
+\usepackage[ngerman]{babel}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+\else
+    \usepackage{graphicx}
+\fi
+
+\title{Webapplikation für eine öffentliche Medienbibliothek mit einer API}
+
+\author{Studierender - Silvan Spross\\
+    Projektbetreuer - Beat Seeliger\\
+    \\
+    HSZ-T - Technische Hochschule Zürich}
+    
+\date{Oktober 2010 bis Februar 2011}
+
+\begin{document}
+
+    \ifpdf
+        \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+    \else
+        \DeclareGraphicsExtensions{.eps, .jpg}
+    \fi
+
+    \maketitle
+    
+    \pagenumbering{Roman}
+    
+    \begin{abstract}
+        
+    \end{abstract}
+
+    \tableofcontents
+    
+    \pagenumbering{arabic}
+
+    \chapter{Einleitung}
+    \section{Ausgangslage}
+    Viele Personen sind im Besitz von digitalen Medien wie zum Beispiel Filme.
+    Im Internet gibt es diverse Plattformen, unter anderem IMDB, um 
+    detaillierte Informationen zu diesen Filmen zu finden und sie zu bewerten. 
+
+    Die Inhalte werden jedoch von den Plattformbetreibern gepflegt und die 
+    Benutzer haben keine Möglichkeit sich à la Wikipedia einzubringen. Auch 
+    basieren die Bewertungen immer auf dem Durchschnitt aller Benutzer. Dies
+    führt relativ schnell zu einer unnützlichen Bewertung, da die Geschmäcker
+    sehr verschieden sind.
+    
+    \section{Ziel der Arbeit}
+    Wikipedia hat bewiesen, dass öffentliches Pflegen von Inhalten 
+    funktioniert. In dieser Arbeit soll ein Prototyp einer Plattform erstellt
+    werden, wo Inhalte zu Medien frei erfasst und bearbeitet werden können.
+    Als weitere Neuerung sollen Benutzer die Bewertungsanzeige von Medien auf
+    frei definierbare Gruppen, wie zum Beispiel ihre Freunde, festlegen 
+    können, um so Bewertungen mit gleichem Geschmack zu sehen.
+
+    Zusätzlich soll auch der Code der Plattform öffentlich verfügbar sein, 
+    damit auch dieser von Dritten weiter gepflegt werden kann. Dazu muss die 
+    Wahl der Technologien und Tools wohl überlegt sein, damit sich weitere 
+    Entwickler finden lassen.
+    
+    \section{Abgrenzung}
+    Die Analysen beschränken sich auf Recherchen im Internet, Büchern und das 
+    nähere Umfeld des Studierenden. Es werden keine Umfragen, Erhebungen und 
+    Feldstudien durchgeführt. Der Prototyp wird nur über einen Bruchteil der 
+    Funktionalität der eigentlichen Plattform verfügen, da es den Rahmen
+    der Arbeit sprengen würde.
+
+    \section{Sprache}
+    Die Semesterarbeit wurde in deutscher Sprache verfasst. Englische Ausdrücke 
+    wurden immer dort verwendet, wo diese im Sprachgebrauch in den verwendeten 
+    Programmen genau so gebraucht werden.
+    
+    Aus Gründen der besseren Lesbarkeit der Semesterarbeit wurde teilweise auf 
+    die Nennung beider Geschlechter verzichtet. In diesen Fällen ist die 
+    weibliche Form ausdrücklich inbegriffen.
+    
+    \chapter{Ist Analyse}
+    \section{Konkurrenz}
+    Welche Plattformen gibt es, was sind ihre USPs.
+    \section{Funktionsumfang}
+    Übersicht über die Plattformen und ihre Funktionen mit Gewichtung.
+    \section{Konklusion}
+    Die Schlüsse die aus der Ist Analyse gezogen werden.
+    
+    \chapter{Konzeption}
+    \section{Funktionen}
+    Was soll genau Umgesetzt werden.
+    \section{Ansichten}
+    Skizzierungen der Funktionen.
+    \section{Entity Relationship Model}
+    ERM Darstellung der Plattform mit obigen Funktionen.
+    
+    \chapter{Technologien \& Tools}
+    \section{Auswahl}
+    Welche Technologien kommen für das Konzipierte überhaupt in Frage. Mit
+    was für Tools müsste man dazu arbeiten.
+    \section{Evaluation}
+    Bewertung der Technologien mit Gewichtung auch in Hinblick auf die Tools.
+    \section{Konklusion}
+    Für welche Technologien udn Projektunterstützende Tools man sich 
+    entschieden hat.
+    
+    \chapter{Prototyp}
+    \section{Entwicklungsinfrastruktur}
+    \subsection{Entwicklungsumgebung}
+    MacOS X, Textmate, Terminal
+    \subsection{Versionierungssystem}
+    git develop, master
+    \subsection{Deployment}
+    Systeme: local, staging, production\\
+    Datenbanken: sqlite, mysql
+    \section{Umsetzung}
+    \section{Testen}
+    \subsection{Testfälle}
+    \subsection{Testresultate}
+    
+    \chapter{Konklusion}
+    \section{Weiterentwicklung}
+    \section{Erfahrungsbericht}
+    
+    \appendix
+    
+    \chapter{Personalienblatt}
+    \begin{tabbing}
+    	\hspace*{4cm}   \= \kill
+    	Name, Vorname:  \> {\bf Spross, Silvan} \\
+    	Adresse:        \> {\bf Meinrad Lienert-Strasse 27} \\
+    	PLZ, Wohnort:   \> {\bf 8003 Zürich} \\
+    	\\
+    	Geburtsdatum:   \> {\bf 07.11.1985} \\
+    	Heimatort:      \> {\bf Zürich ZH} \\
+    \end{tabbing}
+    
+    \chapter{Bestätigung}
+    Hiermit bestätige ich, Silvan Spross, dass ich die vorliegende Semesterarbeit
+    "`Webapplikation für eine öffentliche Medienbibliothek mit einer API"' im
+    Rahmen der geltenden Reglemente selbstständig ausgeführt habe.\\
+    \\
+    Zürich, den 12. Januar 2011\\
+    \\\\
+    Silvan Spross
+    
+    % Abbildungsverzeichnis (kann auch nach dem Inhaltsverzeichnis kommen)
+    \listoffigures
+
+    % Tabellenverzeichnis (kann auch nach dem Inhaltsverzeichnis kommen)
+    \listoftables
+    
+    \bibliographystyle{plain}
+    \bibliography{literaturverzeichnis}
+    
+\end{document}
