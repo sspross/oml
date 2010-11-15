@@ -1,8 +1,0 @@
-%h2 Listing tags
-- if !@tags.empty?
-  .tags
-    = render :partial => "tag", :collection => @tags
-  = will_paginate(@tags)
-- else
-  %p There are no tags to show yet.
-= link_to 'New tag', new_tag_path
