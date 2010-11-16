@@ -6,6 +6,7 @@ de:
   register: "Registrieren"
   current_user: "Angemeldet als {{username}}"
   logout: "Abmelden"
+  root: "Start"
 
   home:
     index:

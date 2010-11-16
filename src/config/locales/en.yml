@@ -6,7 +6,14 @@ en:
   register: "Register"
   current_user: "Logged in as {{username}}"
   logout: "Logout"
+  root: "Home"
 
   home:
     index:
       title: "Welcome"
+      intro: "This is just a test version for testing the functionality of the different models, there references and the RESTful JSON interface for the iPhone and Desktop client."
+      json: "Just append .json to an URL the get the result in JSON. E.g."
+      xml: "Or use old school XML instead. E.g."
+      language: "To get the data in a different (available) language add a language symbol as prefix. E.g."
+      model: "Chose a model:"
+      

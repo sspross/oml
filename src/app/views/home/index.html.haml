@@ -1,1 +1,18 @@
-%h1=t('.title')
+%h2=t('.title')
+%p=t('.intro')
+%p=t('.json')
+%ul
+	%li= movies_url
+	%li= '%s.json' % movies_url
+%p=t('.xml')
+%ul
+	%li= '%s.xml' % movies_url
+%p=t('.language')
+%ul
+	%li= movies_url
+	%li= '%s.json' % movies_url
+%h3=t('.model')
+%ul{:class => 'menu_big'}
+	%li= link_to 'movies (%i)' % Movie.count, movies_url
+%ul{:class => 'menu_big'}
+	%li= link_to 'movies (%i)' % Movie.count, movies_url

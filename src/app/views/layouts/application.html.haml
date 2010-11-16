@@ -1,38 +1,31 @@
+!!! XML
 !!!
-
-%html
+%html{ :'xml:lang' => I18n.locale, :lang => I18n.locale }
   %head
-    %title Project Zero
-    = stylesheet_link_tag 'blueprint/screen',
-                          'formtastic/formtastic',
-                          'formtastic/formtastic_changes',
-                          'application',
-                          :cache => true
-    -# = stylesheet_link_tag 'blueprint/print', :media => 'print'
-    -# = stylesheet_link_tag 'blueprint/ie', :condition => "lt IE 8"
-    = javascript_include_tag 'jquery-1.4.2.min.js',
-                             'jquery.rails.js',
-                             'application.js',
-                             :cache => true
+    %title Semesterarbeit
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
+    = stylesheet_link_tag 'formtastic/formtastic', 'formtastic/formtastic_changes', 'application', :cache => true
+    = javascript_include_tag 'jquery-1.4.2.min.js', 'jquery.rails.js', 'application.js', :cache => true
     = csrf_meta_tag 
   %body
-    .container
-      #header.span-24.last
-        #user_nav
-          - if current_user
-            = t(:current_user, :username => current_user.email)
-            = link_to t(:logout), logout_path
-          - else
-            = link_to t(:register), new_user_path 
-            = link_to t(:login), login_path
-        #locale
-          = link_to("Deutsch", :locale => "de")
-          = link_to("English", :locale => "en")
-        
-      #left-sidebar.span-4
-
-      #main-content.span-16
-        != flash_box(:notice, :alert)
-        = yield 
-
-      #right-sidebar.span-4.last
+    #wrapper
+      #content
+        #menu
+          %ul
+            %li= link_to_unless_active(controller.class.to_s == 'HomeController' && controller.action_name == 'index', t(:root), root_path, 'active')
+        %h1 Semesterarbeit
+        #flash
+          != flash_box(:notice, :alert)
+        = yield
+      #footer
+        %p
+          = link_to_unless_active(I18n.locale.to_s == 'de', "Deutsch", params.merge(:locale => "de"), 'active')
+          = link_to_unless_active(I18n.locale.to_s == 'en', "English", params.merge(:locale => "en"), 'active')
+        #menu
+          %ul
+            - if current_user
+              %li= t(:current_user, :username => current_user.email)
+              %li= link_to_unless_active(controller.class.to_s == 'UserSessionsController' && controller.action_name == 'destroy', t(:logout), logout_path, 'active')
+            - else
+              %li= link_to_unless_active(controller.class.to_s == 'UsersController' && controller.action_name == 'new', t(:register), new_user_path, 'active')
+              %li= link_to_unless_active(controller.class.to_s == 'UserSessionsController' && controller.action_name == 'new', t(:login), login_path, 'active')

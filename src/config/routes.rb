@@ -1,6 +1,7 @@
 ProjectZero::Application.routes.draw do
   root :to => "home#index"
-
+  
+  resources :movies
   resources :users
   resources :user_sessions
 
