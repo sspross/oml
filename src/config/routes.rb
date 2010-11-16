@@ -1,8 +1,10 @@
 ProjectZero::Application.routes.draw do
 
-  root :to => "home#index"
+  root :to => "home#index", :locale => I18n.locale
 
   scope "/:locale" do
+    
+    root :to => "home#index"
     
     resources :movies
     resources :users

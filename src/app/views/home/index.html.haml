@@ -2,11 +2,11 @@
 %p=t('.intro')
 %p=t('.json')
 %ul
-	%li= movies_url
-	%li= '%s.json' % movies_url
+	%li= movies_url(:locale => 'en')
+	%li= '%s.json' % movies_url(:locale => 'en')
 %p=t('.xml')
 %ul
-	%li= '%s.xml' % movies_url
+	%li= '%s.xml' % movies_url(:locale => 'en')
 %p=t('.language')
 %ul
 	%li= movies_url(:locale => 'de')
