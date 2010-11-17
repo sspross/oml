@@ -1,0 +1,42 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  login: "Login"
+  register: "Register"
+  current_user: "Logged in as {{username}}"
+  logout: "Logout"
+  root: "Home"
+  show: "show"
+  edit: "edit"
+  sure: "Are you sure?"
+  new: "new"
+  zero: "No records found."
+  destroy: "delete"
+  back: "back"
+  create_item: "Create new {{what}}"
+  edit_item: "Edit {{what}}"
+        
+  users:
+    new:
+      title: "Register"
+      intro: "You have to register to rate movies."
+      
+  user_sessions:
+    new:
+      title: "Login"
+      intro: "Please login with your email and password."
+        
+  movies:
+    index:
+      movies: "Movies"
+    
+  home:
+    index:
+      title: "Welcome"
+      intro: "This is just a test version for testing the functionality of the different models, there references and the RESTful JSON interface for the iPhone and Desktop client."
+      json: "Just append .json to an URL the get the result in JSON. E.g."
+      xml: "Or use old school XML instead. E.g."
+      language: "To get the data in a different (available) language add a language symbol as prefix. E.g."
+      model: "Chose a model:"
+      

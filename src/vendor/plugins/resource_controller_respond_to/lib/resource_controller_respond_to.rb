@@ -6,6 +6,7 @@ module ResourceControllerRespondTo
     base.extend ClassMethods
     base.class_eval do
       class << self        
+        puts '##loading...'
         alias_method_chain :init_default_actions, :json
         alias_method_chain :init_default_actions, :xml
       end

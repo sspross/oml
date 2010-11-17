@@ -79,3 +79,7 @@ a:hover {
   #footer #menu {
     position: relative;
     top: -27px; }
+  #footer ul {
+    padding: 0; }
+  #footer li {
+    display: inline; }

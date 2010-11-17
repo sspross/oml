@@ -1,0 +1,11 @@
+- content_tag_for :div, movie do
+  %ul{:class => 'attributes'}
+    %li
+      %strong= '%s:' % Movie.human_attribute_name(:title)
+      = movie.title
+    %li
+      %strong= '%s:' % Movie.human_attribute_name(:description)
+      = movie.description
+    = link_to t(:show), movie
+    = link_to t(:edit), edit_movie_path(movie)
+    = link_to t(:destroy), movie, :confirm => t(:sure), :method => :delete
