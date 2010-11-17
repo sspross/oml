@@ -170,6 +170,7 @@ de:
       create: "{{model}} erstellen"
       update: "{{model}} speichern"
             
+  title: "OpenMovieDatabase"
   login: "Anmelden"
   register: "Registrieren"
   current_user: "Angemeldet als {{username}}"

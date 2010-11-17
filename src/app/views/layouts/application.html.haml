@@ -2,7 +2,7 @@
 !!!
 %html{ :'xml:lang' => I18n.locale, :lang => I18n.locale }
   %head
-    %title Semesterarbeit
+    %title= t(:title)
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
     = stylesheet_link_tag 'formtastic/formtastic', 'formtastic/formtastic_changes', 'application', :cache => true
     = javascript_include_tag 'jquery-1.4.2.min.js', 'jquery.rails.js', 'application.js', :cache => true
@@ -13,7 +13,7 @@
         #menu
           %ul
             %li= link_to_unless_active(controller.class.to_s == 'HomeController' && controller.action_name == 'index', t(:root), root_path, 'active')
-        %h1 Semesterarbeit
+        %h1= t(:title)
         #flash
           != flash_box(:notice, :alert)
         = yield
