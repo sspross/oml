@@ -1,0 +1,8 @@
+= semantic_form_for @movie do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :title
+    = f.input :description
+    
+  = f.buttons do
+    = f.commit_button

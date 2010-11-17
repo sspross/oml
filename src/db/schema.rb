@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100902145606) do
+ActiveRecord::Schema.define(:version => 20101116135722) do
+
+  create_table "movie_translations", :force => true do |t|
+    t.integer  "movie_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "movie_translations", ["movie_id"], :name => "index_movie_translations_on_movie_id"
+
+  create_table "movies", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                              :null => false

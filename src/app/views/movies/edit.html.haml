@@ -1,0 +1,3 @@
+%h2=t(:edit_item, :what => Movie.human_name)
+= render :partial => "form", :locals => {:movie => @movie}
+%p= link_to(t(:back), movies_path)

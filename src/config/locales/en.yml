@@ -7,7 +7,29 @@ en:
   current_user: "Logged in as {{username}}"
   logout: "Logout"
   root: "Home"
-
+  show: "show"
+  edit: "edit"
+  sure: "Are you sure?"
+  new: "new"
+  zero: "No records found."
+  destroy: "delete"
+  back: "back"
+  create_item: "Create new {{what}}"
+  edit_item: "Edit {{what}}"
+  
+  activerecord:
+    models:
+      movie: "Movie"
+      movies: "Movies"
+    attributes:
+      movie:
+        title: "Title"
+        description: "Description"
+        
+  movies:
+    index:
+      movies: "Movies"
+    
   home:
     index:
       title: "Welcome"
