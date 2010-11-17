@@ -152,11 +152,18 @@ de:
         
     models:
       movie: "Film"
-      movies: "Filme"
+      user: "User"
     attributes:
       movie:
         title: "Titel"
         description: "Beschreibung"
+      user:
+        email: "E-Mail"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+      user_session:
+        email: "E-Mail"
+        password: "Passwort"
         
   formtastic:
     actions:
@@ -177,6 +184,16 @@ de:
   back: "zurück"
   create_item: "{{what}} erstellen"
   edit_item: "{{what}} bearbeiten"
+  
+  users:
+    new:
+      title: "Registrierung"
+      intro: "Um Filme bewerten zu können, müsst du dich registrieren."
+      
+  user_sessions:
+    new:
+      title: "Anmeldung"
+      intro: "Bitte melde dich mit deiner E-Mailadresse und deinem Passwort an."
   
   movies:
     index:
