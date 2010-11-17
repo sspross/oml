@@ -80,7 +80,6 @@ GEM
     net-ssh (2.0.23)
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
-    nokogiri (1.4.3.1)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -112,9 +111,6 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    webrat (0.5.3)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
     yard (0.6.0)
 
 PLATFORMS
@@ -132,5 +128,4 @@ DEPENDENCIES
   ruby-debug
   shoulda
   sqlite3-ruby
-  webrat
   yard

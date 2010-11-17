@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
-gem 'sqlite3-ruby', :require => 'sqlite3'
 
 
 # gem 'authlogic', '>=2.1.6'
@@ -16,8 +15,8 @@ gem "exception_notification", :git => "http://github.com/rails/exception_notific
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'yard'
-  gem 'webrat'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'capistrano'

@@ -7,6 +7,8 @@ role :web, "orwell.ch"
 role :db,  "orwell.ch", :primary => true
 
 # deploy
+set :deploy_via, :remote_cache
+set :ssh_options, {:forward_agent => true}
 set :deploy_to, "/home/sspross/projects/#{application}"
 set :user, "sspross"
 set :use_sudo, false
