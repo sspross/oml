@@ -13,6 +13,6 @@
 	%li= '%s.json' % movies_url(:locale => 'de')
 %h3=t('.model')
 %ul{:class => 'menu_big'}
-	%li= link_to 'movies (%i)' % Movie.count, movies_url
+	%li= link_to '%s (%i)' % [t('movies.index.movies'), Movie.count], movies_url
 %ul{:class => 'menu_big'}
-	%li= link_to 'movies (%i)' % Movie.count, movies_url
+	
