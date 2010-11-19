@@ -16,7 +16,12 @@ set :use_sudo, false
 # scm
 set :scm, :git
 set :repository, "git://github.com/sspross/semesterarbeit.git"
-set :branch, "develop"
+set :branch, "master"
+
+task :update_config_links, :roles => [:app] do
+  run "ln -sf #{shared_path}/config/* #{release_path}/config/"
+end
+after "deploy:update_code", :update_config_links
 
 # deploy task
 namespace :deploy do

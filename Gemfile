@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 
-
 # gem 'authlogic', '>=2.1.6'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 # gem 'formtastic-rails3'
@@ -24,4 +23,8 @@ group :development, :test do
   gem 'ruby-debug'
 end
 
-
+# Lokal:
+# bundle install --without production
+group :production do
+  gem 'mysql'
+end
