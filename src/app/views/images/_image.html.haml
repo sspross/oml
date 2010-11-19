@@ -1,8 +1,0 @@
-- content_tag_for :div, image do
-  %ul{:class => 'attributes'}
-    %li
-      %strong Description:
-      =h image.description
-    = link_to 'Show', image
-    = link_to 'Edit', edit_image_path(image)
-    = link_to 'Destroy', image, :confirm => 'Are you sure?', :method => :delete

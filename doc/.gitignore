@@ -6,3 +6,6 @@
 *.mtc*
 *.pdf
 *.synctex.gz
+*.lof
+*.lot
+*.toc

@@ -1,0 +1,31 @@
+!!! XML
+!!!
+%html{ :'xml:lang' => I18n.locale, :lang => I18n.locale }
+  %head
+    %title= t(:title)
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
+    = stylesheet_link_tag 'formtastic/formtastic', 'formtastic/formtastic_changes', 'application', :cache => true
+    = javascript_include_tag 'jquery-1.4.2.min.js', 'jquery.rails.js', 'application.js', :cache => true
+    = csrf_meta_tag 
+  %body
+    #wrapper
+      #content
+        #menu
+          %ul
+            %li= link_to_unless_active(controller.class.to_s == 'HomeController' && controller.action_name == 'index', t(:root), root_path, 'active')
+        %h1= t(:title)
+        #flash
+          != flash_box(:notice, :alert)
+        = yield
+      #footer
+        %p
+          = link_to_unless_active(I18n.locale.to_s == 'de', "Deutsch", params.merge(:locale => "de"), 'active')
+          = link_to_unless_active(I18n.locale.to_s == 'en', "English", params.merge(:locale => "en"), 'active')
+        #menu
+          %ul
+            - if current_user
+              %li= t(:current_user, :username => current_user.email)
+              %li= link_to_unless_active(controller.class.to_s == 'UserSessionsController' && controller.action_name == 'destroy', t(:logout), logout_path, 'active')
+            - else
+              %li= link_to_unless_active(controller.class.to_s == 'UsersController' && controller.action_name == 'new', t(:register), new_user_path, 'active')
+              %li= link_to_unless_active(controller.class.to_s == 'UserSessionsController' && controller.action_name == 'new', t(:login), login_path, 'active')

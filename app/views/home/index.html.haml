@@ -1,0 +1,18 @@
+%h2=t('.title')
+%p=t('.intro')
+%p=t('.json')
+%ul
+	%li= movies_url(:locale => 'en')
+	%li= '%s.json' % movies_url(:locale => 'en')
+%p=t('.xml')
+%ul
+	%li= '%s.xml' % movies_url(:locale => 'en')
+%p=t('.language')
+%ul
+	%li= movies_url(:locale => 'de')
+	%li= '%s.json' % movies_url(:locale => 'de')
+%h3=t('.model')
+%ul{:class => 'menu_big'}
+	%li= link_to '%s (%i)' % [t('movies.index.movies'), Movie.count], movies_url
+%ul{:class => 'menu_big'}
+	

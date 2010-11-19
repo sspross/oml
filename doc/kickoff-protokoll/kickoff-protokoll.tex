@@ -1,0 +1,89 @@
+%
+%  Kickoff Protokoll
+%
+%  Created by Silvan Spross on 2010-10-21.
+%
+\documentclass[]{scrreprt}
+\usepackage[ngerman]{babel}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+\else
+    \usepackage{graphicx}
+\fi
+
+\title{Kick-off Protokoll}
+    
+\author{Studierender - Silvan Spross\\
+    Projektbetreuer - Beat Seeliger\\
+    \\
+    HSZ-T - Technische Hochschule Zürich}
+    
+\date{28. Oktober 2010}
+
+\begin{document}
+
+    \ifpdf
+        \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+    \else
+        \DeclareGraphicsExtensions{.eps, .jpg}
+    \fi
+
+    \maketitle
+
+    \pagenumbering{arabic}
+
+    % \tableofcontents
+
+    \chapter{Kick-off Protokoll}
+
+    \section{Semesterarbeit}
+    Webapplikation für eine öffentliche Medienbibliothek mit einer 
+    API\glossary{name={API}, description={Application Programming Interface}}
+
+    \section{Beschlüsse}
+    \begin{itemize}
+        \item Der genaue Inhalt der Arbeit wurde noch einmal diskutiert,
+        damit sichergestellt ist, dass alle von der selben Arbeit ausgehen.
+        \item Die Bewertungskriterien wurden angepasst und in einem Dokument,
+        welches ebenfalls ins EBS geladen wird, festgehalten.
+        \item Das Inhaltsverzeichnis des technischen Berichtes wurde grob
+        besprochen, damit der Studierende parallel beginnen kann seine Arbeit
+        zu dokumentieren.
+        \item Es wurde festgelegt, dass zwingend ein Versionierungssystem
+        und eine Projektablage eingesetzt werden muss. In welcher Form wird
+        sich bei der Evaluation der Technologien zeigen.
+        \item Nach erfolgreicher Eingabe des Kick-off Protokolls, soll ein
+        Design Review Termin im EBS gebucht werden.
+    \end{itemize}
+    
+\end{document}

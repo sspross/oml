@@ -1,0 +1,210 @@
+# German (Switzerland) translations for Ruby on Rails 
+# by Clemens Kofler (clemens@railway.at)
+
+de:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M Uhr"
+      short: "%d. %B, %H:%M Uhr"
+      long: "%A, %d. %B %Y, %H:%M Uhr"
+      time: "%H:%M"
+
+    am: "vormittags"
+    pm: "nachmittags"
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: 'eine halbe Minute'
+      less_than_x_seconds:
+        one: 'weniger als eine Sekunde'
+        other: 'weniger als %{count} Sekunden'
+      x_seconds:
+        one: 'eine Sekunde'
+        other: '%{count} Sekunden'
+      less_than_x_minutes:
+        one: 'weniger als eine Minute'
+        other: 'weniger als %{count} Minuten'
+      x_minutes:
+        one: 'eine Minute'
+        other: '%{count} Minuten'
+      about_x_hours:
+        one: 'etwa eine Stunde'
+        other: 'etwa %{count} Stunden'
+      x_days:
+        one: 'ein Tag'
+        other: '%{count} Tage'
+      about_x_months:
+        one: 'etwa ein Monat'
+        other: 'etwa %{count} Monate'
+      x_months:
+        one: 'ein Monat'
+        other: '%{count} Monate'
+      almost_x_years:
+        one: 'fast ein Jahr'
+        other: 'fast %{count} Jahre'
+      about_x_years:
+        one: 'etwa ein Jahr'
+        other: 'etwa %{count} Jahre'
+      over_x_years:
+        one: 'mehr als ein Jahr'
+        other: 'mehr als %{count} Jahre'
+    prompts:
+      second: "Sekunden"
+      minute: "Minuten"
+      hour: "Stunden"
+      day: "Tag"
+      month: "Monat"
+      year: "Jahr"
+
+  number:
+    format:
+      precision: 2
+      separator: '.'
+      delimiter: "'"
+    currency:
+      format:
+        unit: 'CHF'
+        format: '%u %n'
+        separator: 
+        delimiter: 
+        precision: 
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " und "
+      last_word_connector: " und "
+    select:
+      prompt: "Bitte wählen:"
+
+  activemodel:
+    errors:
+      template:
+        header:
+          one:    "Konnte %{model} nicht speichern: ein Fehler."
+          other:  "Konnte %{model} nicht speichern: %{count} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Konnte %{model} nicht speichern: ein Fehler."
+          other:  "Konnte %{model} nicht speichern: %{count} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+
+      messages:
+        inclusion: "ist kein gültiger Wert"
+        exclusion: "ist nicht verfügbar"
+        invalid: "ist nicht gültig"
+        confirmation: "stimmt nicht mit der Bestätigung überein"
+        accepted: "muss akzeptiert werden"
+        empty: "muss ausgefüllt werden"
+        blank: "muss ausgefüllt werden"
+        too_long: "ist zu lang (nicht mehr als %{count} Zeichen)"
+        too_short: "ist zu kurz (nicht weniger als %{count} Zeichen)"
+        wrong_length: "hat die falsche Länge (muss genau %{count} Zeichen haben)"
+        taken: "ist bereits vergeben"
+        not_a_number: "ist keine Zahl"
+        greater_than: "muss grösser als %{count} sein"
+        greater_than_or_equal_to: "muss grösser oder gleich %{count} sein"
+        equal_to: "muss genau %{count} sein"
+        less_than: "muss kleiner als %{count} sein"
+        less_than_or_equal_to: "muss kleiner oder gleich %{count} sein"
+        odd: "muss ungerade sein"
+        even: "muss gerade sein"
+        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: %{errors}"
+        
+    models:
+      movie: "Film"
+      user: "User"
+    attributes:
+      movie:
+        title: "Titel"
+        description: "Beschreibung"
+      user:
+        email: "E-Mail"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+      user_session:
+        email: "E-Mail"
+        password: "Passwort"
+        
+  formtastic:
+    actions:
+      create: "{{model}} erstellen"
+      update: "{{model}} speichern"
+            
+  title: "OpenMovieDatabase"
+  login: "Anmelden"
+  register: "Registrieren"
+  current_user: "Angemeldet als {{username}}"
+  logout: "Abmelden"
+  root: "Start"
+  show: "details"
+  edit: "bearbeiten"
+  sure: "Bist du sicher?"
+  new: "neu"
+  zero: "Es wurden keine Datensätze gefunden."
+  destroy: "löschen"
+  back: "zurück"
+  create_item: "{{what}} erstellen"
+  edit_item: "{{what}} bearbeiten"
+  
+  users:
+    new:
+      title: "Registrierung"
+      intro: "Um Filme bewerten zu können, müsst du dich registrieren."
+      
+  user_sessions:
+    new:
+      title: "Anmeldung"
+      intro: "Bitte melde dich mit deiner E-Mailadresse und deinem Passwort an."
+  
+  movies:
+    index:
+      movies: "Filme"
+      
+  home:
+    index:
+      title: "Willkommen"
+      intro: "Dies ist bloss ein Prototyp um die Funktionalität der verschiedenen Modelle, deren Abhängigkeiten und die RESTful JSON Schnittstelle für z.B. einen iPhone oder Desktop Client zu testen."
+      json: "Um das Resultat in JSON zu erhalten, muss man nur .json an die URL anhängen. Z.B."
+      xml: "Oder im noch weit verbreitete XML Format:"
+      language: "Um die Daten in einer anderen (vorhandenen) Sprache zu erhalten, muss man nur den Prefix ändern:"
+      model: "Wähle ein Modell:"

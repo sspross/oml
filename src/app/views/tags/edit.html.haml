@@ -1,6 +1,0 @@
-%h2 Editing tag
-= render :partial => "form", :locals => {:tag => @tag}
-%ul{:class => 'menu'}
-  %li= link_to 'Show', @tag
-  %li= link_to 'Back', tags_path
-  %li= link_to 'Destroy', @tag, :confirm => 'Are you sure?', :method => :delete  
