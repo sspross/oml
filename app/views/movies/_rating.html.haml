@@ -1,0 +1,14 @@
+%h2= t('.rating')
+- if @movie.ratings.count > 0
+  %p bla
+- else
+  %p= t('.not_rated')
+  
+%h3= t('.rate', :what => Movie.model_name.human)
+- if current_user
+  - if not @movie.rated_by?(current_user)
+    %p bla
+  - else
+    %p= t('.rated')
+- else
+  %p= t('.register')

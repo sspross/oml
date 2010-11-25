@@ -1,8 +1,8 @@
 %h2= t('.movies')
-= link_to t(:create_item, :what => Movie.human_name), new_movie_path
+= link_to t(:create_item, :what => Movie.model_name.human), new_movie_path
 
 - if !@movies.empty?
   .movies
-    = render :partial => "movie", :collection => @movies
+    = render :partial => "movie", :collection => @movies, :locals => {:actions => true}
 - else
   %p= t(:zero)

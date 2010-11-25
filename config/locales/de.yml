@@ -167,8 +167,8 @@ de:
         
   formtastic:
     actions:
-      create: "{{model}} erstellen"
-      update: "{{model}} speichern"
+      create: "%{model} erstellen"
+      update: "%{model} speichern"
             
   title: "OpenMovieDatabase"
   login: "Anmelden"
@@ -183,8 +183,8 @@ de:
   zero: "Es wurden keine Datensätze gefunden."
   destroy: "löschen"
   back: "zurück"
-  create_item: "{{what}} erstellen"
-  edit_item: "{{what}} bearbeiten"
+  create_item: "%{what} erstellen"
+  edit_item: "%{what} bearbeiten"
   
   users:
     new:
