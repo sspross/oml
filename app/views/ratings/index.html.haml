@@ -1,0 +1,7 @@
+%h2= t('.ratings')
+
+- if !@ratings.empty?
+  .ratings
+    = render :partial => "rating", :collection => @ratings
+- else
+  %p= t(:zero)
