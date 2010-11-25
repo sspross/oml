@@ -9,6 +9,8 @@ gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => '
 gem 'formtastic', '1.1.0.beta'
 gem 'haml', '3.0.18'
 gem "exception_notification", :git => "http://github.com/rails/exception_notification.git", :require => 'exception_notifier'
+gem 'globalize3'
+
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

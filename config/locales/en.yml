@@ -31,6 +31,10 @@ en:
   movies:
     index:
       movies: "Movies"
+      
+  ratings:
+    index:
+      ratings: "Ratings"
     
   home:
     index:

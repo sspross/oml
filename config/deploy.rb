@@ -15,7 +15,7 @@ set :use_sudo, false
 
 # scm
 set :scm, :git
-set :repository, "git://github.com/sspross/semesterarbeit.git"
+set :repository, "git://github.com/sspross/#{application}.git"
 set :branch, "master"
 
 task :update_config_links, :roles => [:app] do

@@ -1,0 +1,14 @@
+- content_tag_for :div, rating do
+  %ul{:class => 'attributes'}
+    %li
+      %strong= '%s:' % Rating.human_attribute_name(:value)
+      = rating.value
+    %li
+      %strong= '%s:' % Rating.human_attribute_name(:movie)
+      = rating.movie
+    %li
+      %strong= '%s:' % Rating.human_attribute_name(:user)
+      = rating.user
+    = link_to t(:show), rating
+    = link_to t(:edit), edit_rating_path(rating)
+    = link_to t(:destroy), rating, :confirm => t(:sure), :method => :delete
