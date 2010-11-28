@@ -1,7 +1,7 @@
 %h2= t('.rating')
 - if @movie.ratings.count > 0
   %p= t('.rating_all', :rating => @movie.rating_all)
-  %p= t('.rating_friends', :rating => @movie.rating_friends(current_user)) if current_user
+  %p= t('.rating_friends', :rating => @movie.rating_friends_of(current_user)) if @movie.rating_friends_of(current_user)
 - else
   %p= t('.not_rated')
   
@@ -19,5 +19,7 @@
         = f.commit_button
   - else
     %p= t('.rated')
+    = '%i: %s' % [current_user.rating_of_movie(@movie).value, current_user.rating_of_movie(@movie).comment]
+    = link_to t('.delete'), current_user.rating_of_movie(@movie), :method => :delete
 - else
   %p= t('.register')

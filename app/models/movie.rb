@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
   translates :title, :description
   
-  has_many :ratings
+  has_many :ratings, :dependent => :destroy
   has_many :users, :through => :ratings
   
   def rated_by?(user)

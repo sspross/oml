@@ -9,6 +9,7 @@
     %li
       %strong= '%s:' % Rating.human_attribute_name(:user)
       = rating.user.email if rating.user
-    = link_to t(:show), rating
-    = link_to t(:edit), edit_rating_path(rating)
-    = link_to t(:destroy), rating, :confirm => t(:sure), :method => :delete
+    - if actions
+      = link_to t(:show), rating
+      = link_to t(:edit), edit_rating_path(rating)
+      = link_to t(:destroy), rating, :confirm => t(:sure), :method => :delete

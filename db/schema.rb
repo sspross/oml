@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20101127142313) do
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
-    t.boolean  "approved"
+    t.boolean  "approved",   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20101127142313) do
   create_table "movie_translations", :force => true do |t|
     t.integer  "movie_id"
     t.string   "locale"
-    t.string   "title"
     t.text     "description"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

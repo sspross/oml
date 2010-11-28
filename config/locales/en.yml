@@ -37,6 +37,9 @@ en:
       register: "You have to register and login first."
       rate: "Rate this %{what}"
       rated: "You have already rated on this movie."
+      rating_all: "Rating over all is %{rating}"
+      rating_friends: "Rating of your friends is %{rating}"
+      delete: "remove"
       
   ratings:
     index:
