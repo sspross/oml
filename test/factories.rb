@@ -20,9 +20,20 @@ end
 
 Factory.define :movie do |f|
   f.title { Factory.next(:title) }
-  f.description "description"
 end
 
 Factory.sequence :title do |n|
   "movietitle#{n}"
+end
+
+Factory.define :friendship do |f, user, friend|
+  f.user user
+  f.friend friend
+  f.approved false
+end
+
+Factory.define :rating do |f, movie, user, value|
+  f.movie movie
+  f.user user
+  f.value value
 end
