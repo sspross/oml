@@ -23,6 +23,10 @@ group :development, :test do
   gem 'capistrano'
   gem 'capistrano-ext'
   gem 'ruby-debug'
+  gem 'ZenTest'
+  gem 'autotest-rails'
+  gem 'redgreen'
+  gem 'autotest-growl'
 end
 
 # Lokal:

@@ -10,13 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101125100118) do
+ActiveRecord::Schema.define(:version => 20101127142313) do
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.boolean  "approved",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "movie_translations", :force => true do |t|
     t.integer  "movie_id"
     t.string   "locale"
-    t.string   "title"
     t.text     "description"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20101125100118) do
     t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "comment"
   end
 
   create_table "users", :force => true do |t|

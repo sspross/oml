@@ -6,7 +6,6 @@ module ResourceControllerRespondTo
     base.extend ClassMethods
     base.class_eval do
       class << self        
-        puts '##loading...'
         alias_method_chain :init_default_actions, :json
         alias_method_chain :init_default_actions, :xml
       end
@@ -17,7 +16,6 @@ module ResourceControllerRespondTo
     def init_default_actions_with_json(klass)
       init_default_actions_without_json(klass)
       klass.class_eval do    
-        puts '##loading json'
         index.wants.json { render :json => collection.to_json, :status => :ok }
         show.wants.json  { render :json  => object}
         edit.wants.json  { render :json  => object}
@@ -36,7 +34,6 @@ module ResourceControllerRespondTo
     def init_default_actions_with_xml(klass)
       init_default_actions_without_xml(klass)
       klass.class_eval do
-        puts '##loading xml'
         index.wants.xml { render :xml => collection.to_xml, :status => :ok }
         show.wants.xml  { render :xml  => object}
         edit.wants.xml  { render :xml  => object}

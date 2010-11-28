@@ -5,7 +5,7 @@ en:
   title: "OpenMovieDatabase"
   login: "Login"
   register: "Register"
-  current_user: "Logged in as {{username}}"
+  current_user: "Logged in as %{username}"
   logout: "Logout"
   root: "Home"
   show: "show"
@@ -15,8 +15,8 @@ en:
   zero: "No records found."
   destroy: "delete"
   back: "back"
-  create_item: "Create new {{what}}"
-  edit_item: "Edit {{what}}"
+  create_item: "Create new %{what}"
+  edit_item: "Edit %{what}"
         
   users:
     new:
@@ -31,6 +31,15 @@ en:
   movies:
     index:
       movies: "Movies"
+    rating:
+      rating: "Rating"
+      not_rated: "No ratings found."
+      register: "You have to register and login first."
+      rate: "Rate this %{what}"
+      rated: "You have already rated on this movie."
+      rating_all: "Rating over all is %{rating}"
+      rating_friends: "Rating of your friends is %{rating}"
+      delete: "remove"
       
   ratings:
     index:

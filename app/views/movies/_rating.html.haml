@@ -1,0 +1,25 @@
+%h2= t('.rating')
+- if @movie.ratings.count > 0
+  %p= t('.rating_all', :rating => @movie.rating_all)
+  %p= t('.rating_friends', :rating => @movie.rating_friends_of(current_user)) if @movie.rating_friends_of(current_user)
+- else
+  %p= t('.not_rated')
+  
+%h3= t('.rate', :what => Movie.model_name.human)
+- if current_user
+  - if not @movie.rated_by?(current_user)
+    = semantic_form_for Rating.new do |f|
+      = f.semantic_errors
+      = f.inputs do
+        = f.input :value, :as => :select, :collection => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        = f.input :comment
+        = f.input :movie_id, :as => :hidden, :value => @movie.id
+
+      = f.buttons do
+        = f.commit_button
+  - else
+    %p= t('.rated')
+    = '%i: %s' % [current_user.rating_of_movie(@movie).value, current_user.rating_of_movie(@movie).comment]
+    = link_to t('.delete'), current_user.rating_of_movie(@movie), :method => :delete
+- else
+  %p= t('.register')

@@ -2,9 +2,8 @@ require 'test_helper'
 
 class UserSessionsControllerTest < ActionController::TestCase
 
-
   context "GET on new" do
-    setup { get :new }
+    setup { get :new, :locale => I18n.locale }
     should respond_with(:success)
   end
 
@@ -14,6 +13,7 @@ class UserSessionsControllerTest < ActionController::TestCase
     context "POST on create with valid data" do
       setup do
         post :create,
+             :locale => I18n.locale,
              :user_session => { :email => @user.email, :password => 'welcome' }
       end
       should respond_with(:redirect)
@@ -25,7 +25,7 @@ class UserSessionsControllerTest < ActionController::TestCase
 
     context "POST on create with invalid email" do
       setup do
-        post :create, :user_session =>
+        post :create, :locale => I18n.locale, :user_session =>
              { :email => 'invalid@example.com', :password => 'welcome' }
       end
       should respond_with(:success)
@@ -43,7 +43,7 @@ class UserSessionsControllerTest < ActionController::TestCase
       end
 
       context "DELETE on destroy" do
-        setup { delete :destroy }
+        setup { delete :destroy, :locale => I18n.locale }
         should respond_with(:redirect)
         should "leave no traces in http session" do
           assert_nil @controller.session["user_credentials"]
@@ -51,6 +51,5 @@ class UserSessionsControllerTest < ActionController::TestCase
       end
     end
   end
-
-
+  
 end

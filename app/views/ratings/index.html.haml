@@ -2,6 +2,6 @@
 
 - if !@ratings.empty?
   .ratings
-    = render :partial => "rating", :collection => @ratings
+    = render :partial => "rating", :collection => @ratings, :locals => {:actions => true}
 - else
   %p= t(:zero)
