@@ -1,6 +1,4 @@
 %h2= @movie.title
 = render :partial => "movie", :locals => {:movie => @movie, :actions => false}
-
 = render :partial => "rating", :locals => {:movie => @movie}
-
 %p= link_to(t(:back), movies_path)

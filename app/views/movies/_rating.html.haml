@@ -1,7 +1,7 @@
 %h2= t('.rating')
 - if @movie.ratings.count > 0
-    %p= t('.rating_all', :rating => @movie.rating_all)
-    %p= t('.rating_friends', :rating => @movie.rating_friends(current_user)) if current_user
+  %p= t('.rating_all', :rating => @movie.rating_all)
+  %p= t('.rating_friends', :rating => @movie.rating_friends(current_user)) if current_user
 - else
   %p= t('.not_rated')
   
