@@ -153,6 +153,7 @@ de:
     models:
       movie: "Film"
       user: "User"
+      rating: "Bewertung"
     attributes:
       movie:
         title: "Titel"
@@ -164,6 +165,11 @@ de:
       user_session:
         email: "E-Mail"
         password: "Passwort"
+      rating:
+        value: "Wertung"
+        movie: "Film"
+        user: "User"
+        comment: "Kommentar"
         
   formtastic:
     actions:
@@ -199,6 +205,19 @@ de:
   movies:
     index:
       movies: "Filme"
+    rating:
+      rating: "Bewertung"
+      not_rated: "Keine Bewertungen vorhanden."
+      register: "Du must registriert sein und dich anmelden um bewerten zu können."
+      rate: "%{what} bewerten"
+      rated: "Du hast diesen Film schon bewertet."
+      rating_all: "Durchschnittliche Bewertung über alle %{rating}"
+      rating_friends: "Durchschnittliche Bewertung deiner Freunde %{rating}"
+      delete: "entfernen"
+
+  ratings:
+    index:
+      ratings: "Bewertungen"
       
   home:
     index:
