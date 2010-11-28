@@ -14,5 +14,22 @@ class UserTest < ActiveSupport::TestCase
     setup { @user = Factory(:user) }
     should validate_uniqueness_of(:email)
   end
+  
+  context "New user" do
+    setup { @user = Factory(:user) }
+    
+    should "have no friends" do
+      assert_equal @user.friends.size, 0
+      assert_equal @user.inverse_friendships.size, 0
+      assert_equal @user.direct_friends.size, 0
+      assert_equal @user.inverse_friends.size, 0
+      assert_equal @user.pending_friends.size, 0
+      assert_equal @user.requested_friendships.size, 0
+    end
+    
+    should "have no ratings" do
+      assert_equal @user.ratings.size, 0
+    end
+  end
 
 end

@@ -17,3 +17,12 @@ end
 Factory.sequence :email do |n|
   "user#{n}@example.com"
 end
+
+Factory.define :movie do |f|
+  f.title { Factory.next(:title) }
+  f.description "description"
+end
+
+Factory.sequence :title do |n|
+  "movietitle#{n}"
+end

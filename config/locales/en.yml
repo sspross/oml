@@ -36,6 +36,7 @@ en:
       not_rated: "No ratings found."
       register: "You have to register and login first."
       rate: "Rate this %{what}"
+      rated: "You have already rated on this movie."
       
   ratings:
     index:
