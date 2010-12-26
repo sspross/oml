@@ -1,23 +1,35 @@
 \section{Konkurrenz}
-Es existieren diverse Plattformen die Informationen zu Filmen
+Es existieren diverse Plattformen die Informationen zu Filmen zur Verfügung stellen.
+Die Bekannteste \cite{movie_informations} unter ihnen ist ``The Internet Movie Database'',
+besser bekannt unter der Abkürzung ``IMDB''. Sie bietet detaillierte Informationen
+zu existierenden Filmen, solche die zur Zeit gedreht werden und sogar über jene, die
+sich erst in der Planung befinden.
+
+Es existieren natürlich noch viele weitere Plattformen und die Grössten darunter
+möchte ich unter den folgenden drei Kriterien beurteilen:
 
 \begin{itemize}
-    \item I: Der Besucher kann auf den Beschreibenden Inhalt Einfluss nehmen.
+    \item I: Der Besucher kann auf den beschreibenden Inhalt Einfluss nehmen.
     \item R: Der Besucher kann die Filme bewerten. 
     \item FR: Der Besucher kann eine eigene Bewertung unter seinen Freunden führen.
 \end{itemize}
 
-In der Tabelle \ref{tab:plattformen} habe ich diverse bekannte und 
-unbekanntere Plattformen untersucht und unter den definierten Merkmalen betrachtet:
+Der Prototyp, der in dieser Arbeit erstellt werden soll, soll alle drei Kriterien
+erfüllen, da diese meines Erachtens die Grundlage für eine gute öffentliche Filmdatenbank 
+sind.
+
+In der Tabelle \ref{tab:plattformen} habe ich die bekannteren und unbekannteren 
+Plattformen untersucht und unter den definierten Kriterien betrachtet:
 
 \begin{table}[h]
 \begin{center}
     \begin{tabular}{lllccc}
-        \toprule Nr & Adresse & URL & I & R & FR \\
-        \midrule 1 & Deutsche Film- und Medienbewertung & fbw-filmbewertung.com & - & - & - \\
-        \midrule 2 & Online-Filmdatebank & ofdb.de & - & x & - \\
-        \midrule 3 & Wikipedia & wikipedia.com & x & - & - \\
-        \midrule 4 & The Internet Movie Database & imdb.com & - & x & - \\
+        \toprule Nr & Name & URL & I & R & FR \\
+        \midrule 1 & The Internet Movie Database & imdb.com & - & x & - \\
+        \midrule 2 & Deutsche Film- und Medienbewertung & fbw-filmbewertung.com & - & - & - \\
+        \midrule 3 & Online-Filmdatebank & ofdb.de & - & x & - \\
+        \midrule 4 & Wikipedia & wikipedia.com & x & - & - \\
+        \midrule 5 & Rotten Tomatoes & rottentomatoes.com & - & x & - \\
         \bottomrule
     \end{tabular}
     \caption{Existierende Plattformen}
@@ -31,7 +43,111 @@ eine Bewertung an, jedoch keine eine Bewertung die sich nur auf den
 Freundeskreis des Betrachters bezieht.
 
 \section{Funktionsumfang}
-Übersicht über die Plattformen und ihre Funktionen mit Gewichtung.
+Nun bewerte ich die Plattformen inklusive der geplanten neuen Plattform anhand
+ausgewählten Funktionen mit einer Gewichtung im Hinblick auf was eine gute und
+öffentliche Plattform auszeichnet.
+Folgende Funktionen werden gewichtet:
+
+\begin{enumerate}
+    \item \textbf{Kritikfreie Filmbeschreibung}\\
+          Ein Film hat eine Beschreibung, welche ohne jegliche Kritik den Inhalt
+          des Filmes in einer kurzen Zusammenfassung wiedergibt.
+    \item \textbf{Redaktionelle Bewertung}\\
+          Ein Film hat eine Bewertung, die von den Verfassern der Filmbeschreibung 
+          abgegeben wird.
+    \item \textbf{Bewertung durch Benutzer}\\
+          Ein Film kann durch die Benutzer, die sich auf der Plattform
+          registrieren müssen, bewertet werden.
+    \item \textbf{Kommentare von Benutzern}\\
+          Benutzer können individuelle Kommentare zu einen Film abgeben. Diese
+          können ergänzend zu einer Bewertung, aber auch ohne, hinzugefügt werden.
+    \item \textbf{Bewertung des Freundeskreises}\\
+          Ein Benutzer kann die Bewertung eines Filmes im Kreise seiner Freunde
+          betrachten und so eine, für ihn, aussagekräftigere Bewertung erhalten.
+    \item \textbf{Weiterführende Informationen}\\
+          Es können weitere Verweise und Hinweise, die nützliche Informationen
+          zu einen Film bieten, abgebildet werden.
+\end{enumerate}
+
+\subsection{Gewichtung}
+In der Tabelle \ref{tab:funktionen} habe ich die Funktionen und deren Gewichtung
+aufgelistet. Die Gewichtung geht von 1 bis 5, wobei 1 für `unwichtig' und 5 für
+`sehr wichtig' steht. Es dürfen nur ganze Zahlen verwendet werden, da ich 
+absichtlich eine Gewichtung ohne exakte Mitte gewählt habe. Dies dient der
+Aussagekraft und der besseren Abgrenzbarkeit.
+
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{llc}
+        \toprule Nr & Funktion & Gewichtung \\
+        \midrule 1 & Kritikfreie Filmbeschreibung & 5 \\
+        \midrule 2 & Redaktionelle Bewertung & 2 \\
+        \midrule 3 & Bewertung durch Benutzer & 4 \\
+        \midrule 4 & Kommentare von Benutzern & 1 \\
+        \midrule 5 & Bewertung des Freundeskreises & 5 \\
+        \midrule 6 & Weiterführende Informationen & 3 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Funktionen einer guten Filmbewertungsplattform}
+    \label{tab:funktionen}
+\end{center}
+\end{table}
+
+\subsection{Direkter Vergleich}
+Nun übertrage ich die Funktionen inklusive Gewichtung auf die einzelnen Plattformen
+um die bestehenden mit der geplanten Plattform vergleichen zu können.
+
+Als vergleichbare Grundlage habe ich bei den bestehenden Plattformen den Film 
+``Das Experiment'' aus dem Jahre 2001 gewählt. In der Tabelle \ref{tab:deeplinks} 
+sind die genauen Webadressen zu dem Film auf den einzelnen Plattformen aufgelistet. 
+Die Deeplinks sind zum Zeitpunkt der Erstellung dieser Arbeit gültige Adressen.
+
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{lll}
+        \toprule Plattform & Deeplink \\
+        \midrule 1 & \url{http://www.imdb.com/title/tt0250258/} \\
+        \midrule 2 & \url{http://www.fbw-filmbewertung.com/film/das_experiment_1} \\
+        \midrule 3 & \url{http://www.ofdb.de/film/3681,Das-Experiment} \\
+        \midrule 4 & \url{http://de.wikipedia.org/wiki/Das_Experiment_%28Film%29} \\
+        \midrule 5 & \url{http://www.rottentomatoes.com/m/1116582-experiment/} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Deeplinks zu ``Das Experiment'' der existierenden Plattformen}
+    \label{tab:deeplinks}
+\end{center}
+\end{table}
+
+Wenn eine Plattform die gewünschte Funktion unterstützt, erhält sie die volle Gewichtung,
+wenn nicht erhält sie den Wert `0'. Somit wird der Erfüllungsgrad der einzelnen Plattformen
+immer als `erfüllt' oder `nicht erfüllt' angesehen. Für eine bessere Darstellung wird der Wert `0'
+mit einem `-' eingetragen. 
+
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{llccccccc}
+        \toprule
+        \multicolumn{2}{c}{Plattform} & \multicolumn{6}{c}{Funktion} & \textbf{Summe} \\
+        \multicolumn{2}{c}{} & 1 & 2 & 3 & 4 & 5 & 6 & \\ 
+        \midrule 1 & The Internet Movie Database & 5 & - & 4 & 1 & - & 3 & \textbf{13} \\
+        \midrule 2 & Deutsche Film- und Medienbewertung & 5 & 2 & - & - & - & - & \textbf{7} \\ 
+        \midrule 3 & Online-Filmdatebank & 5 & - & 4 & - & - & 3 & \textbf{12} \\ 
+        \midrule 4 & Wikipedia & 5 & 2 & - & - & - & 3 & \textbf{10} \\ 
+        \midrule 5 & Rotten Tomatoes & 5 & 2 & 4 & 1 & - & - & \textbf{12} \\ 
+        \midrule 6 & OpenMediaLibrary & 5 & 2 & 4 & 1 & 5 & - & \textbf{17} \\ 
+        \bottomrule
+    \end{tabular}
+    \caption{Funktionsvergleich der Plattformen}
+    \label{tab:funktionen_vergleich}
+\end{center}
+\end{table}
 
 \section{Konklusion}
-Die Schlüsse die aus der Ist Analyse gezogen werden.
+Aus den einzelnen Summen in der Tabelle \ref{tab:funktionen_vergleich} geht hervor,
+dass es sich lohnt einen Prototypen der neuen Plattform zu erstellen. Ich stütze
+mich hierbei auch auf mein näheres Umfeld, wo diese Funktionalität ebenso gewünscht 
+und geschätzt wird.
+
+Falls dieses Projekt über den Prototyp-Status weiterverfolgt werden sollte, lohnt
+es sich eine breitere, wenn möglich, weltweite Umfrage über den Funktionsumfang
+durchzuführen.
