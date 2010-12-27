@@ -1,30 +1,42 @@
 \section{Konkurrenz}
 Es existieren diverse Plattformen die Informationen zu Filmen zur Verfügung stellen.
-Die Bekannteste \cite{movie_informations} unter ihnen ist ``The Internet Movie Database'',
+Die laut Google \cite{movie_informations} Bekannteste unter ihnen ist ``The Internet Movie Database'',
 besser bekannt unter der Abkürzung ``IMDB''. Sie bietet detaillierte Informationen
 zu existierenden Filmen, solche die zur Zeit gedreht werden und sogar über jene, die
-sich erst in der Planung befinden.
+sich erst in der Planungsphase befinden.
 
-Es existieren natürlich noch viele weitere Plattformen und die Grössten darunter
-möchte ich unter den folgenden drei Kriterien beurteilen:
+Es existieren natürlich noch viele weitere Plattformen und die Grössten unter 
+ihnen möchte ich nach den folgenden drei Kriterien beurteilen:
 
-\begin{itemize}
-    \item I: Der Besucher kann auf den beschreibenden Inhalt Einfluss nehmen.
-    \item R: Der Besucher kann die Filme bewerten. 
-    \item FR: Der Besucher kann eine eigene Bewertung unter seinen Freunden führen.
-\end{itemize}
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{lp{12cm}l}
+        \toprule Nr & Beschreibung \\
+        \midrule 1 & Der Besucher kann die Beschreibung, welche den Inhalt 
+                     des Films in einer kurzen Zusammenfassung wiedergibt, mitbestimmen. \\
+        \midrule 2 & Der Besucher kann die Filme bewerten. \\
+        \midrule 3 & Der Besucher hat die Möglichkeit für jeden Film eine zusätzliche
+                     Bewertung zu sehen, die nur über ihn und seine Freunde berechnet
+                     wird und somit für seinen Geschmack aussagekräftiger ist. \\
+        \bottomrule
+    \end{tabular}
+    \caption{Bewertungskriterien einer guten Filmbewertungsplattform}
+    \label{tab:bewertungskriterien}
+\end{center}
+\end{table}
 
-Der Prototyp, der in dieser Arbeit erstellt werden soll, soll alle drei Kriterien
-erfüllen, da diese meines Erachtens die Grundlage für eine gute öffentliche Filmdatenbank 
-sind.
+Der Prototyp namens ``OpenMediaLibrary'', kurz ``OML'', der in dieser Arbeit erstellt werden soll, 
+soll alle drei Kriterien erfüllen, da diese meines Erachtens die Grundlage für eine gute 
+öffentliche Filmdatenbank sind.
 
 In der Tabelle \ref{tab:plattformen} habe ich die bekannteren und unbekannteren 
-Plattformen untersucht und unter den definierten Kriterien betrachtet:
+Plattformen untersucht und nach den definierten Kriterien beurteilt. Ein `x' bedeutet,
+dass die Plattform das Kriterium erfüllt und ein `-', dass sie es nicht erfüllt.
 
 \begin{table}[h]
 \begin{center}
     \begin{tabular}{lllccc}
-        \toprule Nr & Name & URL & I & R & FR \\
+        \toprule Nr & Name & URL & \multicolumn{3}{c}{Kriterien} \\ & & & 1 & 2 & 3 \\
         \midrule 1 & The Internet Movie Database & imdb.com & - & x & - \\
         \midrule 2 & Deutsche Film- und Medienbewertung & fbw-filmbewertung.com & - & - & - \\
         \midrule 3 & Online-Filmdatebank & ofdb.de & - & x & - \\
@@ -43,33 +55,48 @@ eine Bewertung an, jedoch keine eine Bewertung die sich nur auf den
 Freundeskreis des Betrachters bezieht.
 
 \section{Funktionsumfang}
-Nun bewerte ich die Plattformen inklusive der geplanten neuen Plattform anhand
-ausgewählten Funktionen mit einer Gewichtung im Hinblick auf was eine gute und
-öffentliche Plattform auszeichnet.
-Folgende Funktionen werden gewichtet:
+Relevant sind jedoch nicht nur meine Bewertungskriterien aus der Tabelle \ref{tab:bewertungskriterien},
+sondern auch der allgemeine Funktionsumfang einer Filmbewertungsplattform.
+Deshalb bewerte ich die Plattformen inklusive der geplanten neuen Plattform ``OML'' 
+anhand von mir ausgewählten Funktionen, die ich dann mit einer Gewichtung,
+im Hinblick auf was eine gute und öffentliche Plattform auszeichnet, versehe.
+
+Folgende sechs Funktionen sind meines Erachtens die Basis einer solchen Plattform: 
 
 \begin{enumerate}
-    \item \textbf{Kritikfreie Filmbeschreibung}\\
+    \item \textbf{Filmbeschreibung}\\
           Ein Film hat eine Beschreibung, welche ohne jegliche Kritik den Inhalt
-          des Filmes in einer kurzen Zusammenfassung wiedergibt.
+          des Filmes in einer kurzen Zusammenfassung wiedergibt. Bei dieser Funktion
+          wird jedoch nicht darauf geachtet, ob der Benutzer darauf Einfluss nehmen
+          kann oder nicht.
     \item \textbf{Redaktionelle Bewertung}\\
           Ein Film hat eine Bewertung, die von den Verfassern der Filmbeschreibung 
-          abgegeben wird.
+          abgegeben wird. Also keine berechnete, sondern eine subjektive Bewertung
+          des oder der Autoren der Filmbeschreibung.
     \item \textbf{Bewertung durch Benutzer}\\
           Ein Film kann durch die Benutzer, die sich auf der Plattform
-          registrieren müssen, bewertet werden.
+          registrieren müssen, bewertet werden. Die Bewertungen aller Benutzer
+          fliessen dann in eine Gesamtbewertung. Die Gesamtbewertung wird berechnet,
+          indem man den Mittelwert der Summe aller Bewertungen nimmt.
     \item \textbf{Kommentare von Benutzern}\\
           Benutzer können individuelle Kommentare zu einen Film abgeben. Diese
           können ergänzend zu einer Bewertung, aber auch ohne, hinzugefügt werden.
     \item \textbf{Bewertung des Freundeskreises}\\
           Ein Benutzer kann die Bewertung eines Filmes im Kreise seiner Freunde
           betrachten und so eine, für ihn, aussagekräftigere Bewertung erhalten.
+          Diese wird berechnet, indem man den Mittelwert der Summe aller Bewertungen
+          seiner Freunde und seiner eigenen nimmt.
     \item \textbf{Weiterführende Informationen}\\
           Es können weitere Verweise und Hinweise, die nützliche Informationen
-          zu einen Film bieten, abgebildet werden.
+          zu einem Film bieten, abgebildet werden. Dies kann in Form von zusätzlichen
+          Quellenangaben, Kaufinformationen oder rein informativen Texten sein.
 \end{enumerate}
 
 \subsection{Gewichtung}
+Nun versehe ich die genannten Funktionen mit einer Gewichtung. Diese spiegelt die
+Relevanz der Funktion wieder. Die Gewichtung ist von mir vergeben, jedoch in Bezug
+auf Diskussionen in meinem näheren Umfeld.
+
 In der Tabelle \ref{tab:funktionen} habe ich die Funktionen und deren Gewichtung
 aufgelistet. Die Gewichtung geht von 1 bis 5, wobei 1 für `unwichtig' und 5 für
 `sehr wichtig' steht. Es dürfen nur ganze Zahlen verwendet werden, da ich 
@@ -80,11 +107,11 @@ Aussagekraft und der besseren Abgrenzbarkeit.
 \begin{center}
     \begin{tabular}{llc}
         \toprule Nr & Funktion & Gewichtung \\
-        \midrule 1 & Kritikfreie Filmbeschreibung & 5 \\
+        \midrule 1 & Filmbeschreibung & 5 \\
         \midrule 2 & Redaktionelle Bewertung & 2 \\
         \midrule 3 & Bewertung durch Benutzer & 4 \\
         \midrule 4 & Kommentare von Benutzern & 1 \\
-        \midrule 5 & Bewertung des Freundeskreises & 5 \\
+        \midrule 5 & Bewertung des Freundeskreises & 4 \\
         \midrule 6 & Weiterführende Informationen & 3 \\
         \bottomrule
     \end{tabular}
@@ -120,8 +147,18 @@ Die Deeplinks sind zum Zeitpunkt der Erstellung dieser Arbeit gültige Adressen.
 
 Wenn eine Plattform die gewünschte Funktion unterstützt, erhält sie die volle Gewichtung,
 wenn nicht erhält sie den Wert `0'. Somit wird der Erfüllungsgrad der einzelnen Plattformen
-immer als `erfüllt' oder `nicht erfüllt' angesehen. Für eine bessere Darstellung wird der Wert `0'
-mit einem `-' eingetragen. 
+immer als `erfüllt' oder `nicht erfüllt' angesehen. Zur bessere Darstellung wird der Wert `0' 
+mit einem `-' eingetragen.
+
+Die Bewertung der eigenen geplanten Plattform Nr. 6 ``OpenMediaLibrary'', basiert auf
+der Annahme, dass alle Funktionen umgesetzt werden können, ausser die Funktionalität Nr. 6 
+``Weiterführende Informationen''. Auf diese habe ich ganz verzichtet, da sie zu Beginn 
+nicht zwingend notwendig ist und damit nicht die volle Punktzahl von 19 erreicht wird.
+
+In der nachstehenden Tabelle \ref{tab:funktionen_vergleich} sind die Plattformen und
+die Funktionen in einer Matrix aufgelistet und mit den Gewichtungen versehen. Als
+Resultat dient die Summe der Gewichtungen pro Plattform. Um so höher die Summe, umso
+mehr relevante Funktionen sind in der Plattform abgebildet.
 
 \begin{table}[h]
 \begin{center}
@@ -134,7 +171,7 @@ mit einem `-' eingetragen.
         \midrule 3 & Online-Filmdatebank & 5 & - & 4 & - & - & 3 & \textbf{12} \\ 
         \midrule 4 & Wikipedia & 5 & 2 & - & - & - & 3 & \textbf{10} \\ 
         \midrule 5 & Rotten Tomatoes & 5 & 2 & 4 & 1 & - & - & \textbf{12} \\ 
-        \midrule 6 & OpenMediaLibrary & 5 & 2 & 4 & 1 & 5 & - & \textbf{17} \\ 
+        \midrule 6 & OpenMediaLibrary & 5 & 2 & 4 & 1 & 4 & - & \textbf{16} \\ 
         \bottomrule
     \end{tabular}
     \caption{Funktionsvergleich der Plattformen}
@@ -144,9 +181,9 @@ mit einem `-' eingetragen.
 
 \section{Konklusion}
 Aus den einzelnen Summen in der Tabelle \ref{tab:funktionen_vergleich} geht hervor,
-dass es sich lohnt einen Prototypen der neuen Plattform zu erstellen. Ich stütze
-mich hierbei auch auf mein näheres Umfeld, wo diese Funktionalität ebenso gewünscht 
-und geschätzt wird.
+dass es sich lohnt, den Prototypen der neuen Plattform namens ``OpenMediaLibrary'' zu erstellen. 
+Ich stütze mich hierbei, wie erwähnt, vor allem auf mein näheres Umfeld, wo diese Funktionalität 
+ebenso gewünscht und geschätzt wird.
 
 Falls dieses Projekt über den Prototyp-Status weiterverfolgt werden sollte, lohnt
 es sich eine breitere, wenn möglich, weltweite Umfrage über den Funktionsumfang
