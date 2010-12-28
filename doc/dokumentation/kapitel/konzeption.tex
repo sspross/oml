@@ -36,12 +36,12 @@ Funktionen aufgelistet, nummeriert und näher beschrieben:
 \end{center}
 \end{table}
 
-Anmerkung zur Funktion Nr. 7: Eine API (Application-Programming-Interface), auf 
+Anmerkung zur Funktion Nr. 7: Eine API (``Application-Programming-Interface''), auf 
 Deutsch ``Programmierschnittstelle'', ist ein Programmteil, der von einem Softwaresystem 
 anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird \cite{api}.
 
 Der Prototyp soll es anderen Programmen über diese Schnittstelle ermöglichen,
-Filme und deren Bewertung abzurufen, zu ändern und zu löschen.
+Filme und deren Bewertung abzurufen, zu erstellen, zu ändern und zu löschen.
 
 \subsection{Kann-Funktionen}
 In der nachstehenden Tabelle \ref{tab:kann_funktionen} sind alle optional 
@@ -57,7 +57,7 @@ können, wird die Nummerierung fortlaufend durchgeführt.
         \midrule 9 & Freunde verwalten & Angemeldete Benutzer können Freunde
                      zu ihrer Freundesliste hinzufügen und entfernen. \\
         \midrule 10 & Bewertungen verwalten & Angemeldete Benutzer können
-                     in einer spezial Ansicht alle ihre abgegebenen Bewertungen
+                     in einer speziellen Ansicht alle ihre abgegebenen Bewertungen
                      und Kommentare zu Filmen bearbeiten und löschen. \\
         \midrule 11 & Favoritenliste & Angemeldete Benutzer können Filme ihrer
                      Favoritenliste hinzufügen und entfernen. \\
@@ -88,6 +88,14 @@ Sprachen und einem Registrierungs- und Anmeldebutton zu sehen. Auch ist klar erk
 wo sich der Inhalt der jeweiligen Seiten befinden wird. Zusätzlich sieht man, welches
 Menü und welche Sprache zur Zeit aktiv ist.
 
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=1\textwidth,angle=0]{./wireframes/01_grundlayout.png}
+        \caption{Wireframe des Grundlayouts}
+        \label{01_grundlayout}
+    \end{center}
+\end{figure}
+
 In den folgenden Ansichten wird jeweils der Seiteninhalt näher spezifiziert. Die
 aktiven und inaktiven Menüs werden ebenfalls der aktuellen Seite angepasst.
 
@@ -97,10 +105,28 @@ auf der Plattform zu registrieren benötigt man einen Benutzername, der gleichze
 die E-Mailadresse des Benutzers ist. Hinzu kommt ein Passwort, dass man zur 
 Bestätigung wiederholt eingeben muss.
 
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=1\textwidth,angle=0]{./wireframes/02_registrierung.png}
+        \caption{Wireframe der Registrierung}
+        \label{02_registrierung}
+    \end{center}
+\end{figure}
+
+\clearpage
+
 \subsection{Anmeldung}
 Nachdem man sich erfolgreich registriert hat, kann man sich auf der Plattform
 mit dem Benutzernamen und Passwort anmelden. Wie diese Anmeldung aussehen soll, sieht
 man in der Grafik \ref{03_anmeldung}.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=1\textwidth,angle=0]{./wireframes/03_anmeldung.png}
+        \caption{Wireframe der Anmeldung}
+        \label{03_anmeldung}
+    \end{center}
+\end{figure}
 
 \subsection{Filme}
 Für die Darstellung der Filme gibt es vier verschiedene Ansichten:
@@ -123,6 +149,14 @@ Funktionen verfügbar:
     \item Löschen: Entfernt den Film von der Plattform
 \end{itemize}
 
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=1\textwidth,angle=0]{./wireframes/04_01_uebersicht.png}
+        \caption{Wireframe der Filmübersicht}
+        \label{04_01_uebersicht}
+    \end{center}
+\end{figure}
+
 Zusätzlich zur Auflistung existiert ein Button zur Erstellung eines neuen Filmes.
 Ich verzichte auf die Maske zur Erstellung eines neuen Filmes, da diese genau gleich
 aussehen wird wie die Bearbeitungsmaske, jedoch ohne bestehendem Inhalt.
@@ -132,50 +166,7 @@ In der Grafik \ref{04_02_detail} sieht man die Detailansicht eines Filmes inklus
 über alle Benutzer. Diese Angaben, wie auch die Filmübersicht, sind für Gäste und
 unangemeldete Benutzer sichtbar.
 
-\subsubsection{3. Filmdetailansicht für angemeldete Benutzer}
-Die zusätzlichen Funktionen wie die Maske zur Abgabe einer Bewertung und die Bewertungsangabe des Filmes 
-seiner Freunde sehen nur angemeldete Benutzer und ist in der Grafik \ref{04_03_detail_angemeldet} 
-ersichtlich. Die Maske um eine Bewertung abzugeben ist zudem nur zu sehen, sofern der angemeldete
-Benutzer noch keine Bewertung abgegeben hat. In diesem Falle würde der Benutzer an dieser
-Stelle seine eigene Bewertung sehen und könnte diese bearbeiten oder entfernen.
-
-\subsubsection{4. Bearbeitungsmaske eines Filmes}
-In dieser Ansicht kann man den Namen und die Beschreibung des Filmes bearbeiten.
-Wie diese aussehen soll, sieht man in der Grafik \ref{04_04_edit}.
-
-\begin{figure}[p]
-    \begin{center}
-        \includegraphics[width=1\textwidth,angle=0]{./wireframes/01_grundlayout.png}
-        \caption{Wireframe des Grundlayouts}
-        \label{01_grundlayout}
-    \end{center}
-\end{figure}
-
-\begin{figure}[p]
-    \begin{center}
-        \includegraphics[width=1\textwidth,angle=0]{./wireframes/02_registrierung.png}
-        \caption{Wireframe der Registrierung}
-        \label{02_registrierung}
-    \end{center}
-\end{figure}
-
-\begin{figure}[p]
-    \begin{center}
-        \includegraphics[width=1\textwidth,angle=0]{./wireframes/03_anmeldung.png}
-        \caption{Wireframe der Anmeldung}
-        \label{03_anmeldung}
-    \end{center}
-\end{figure}
-
-\begin{figure}[p]
-    \begin{center}
-        \includegraphics[width=1\textwidth,angle=0]{./wireframes/04_01_uebersicht.png}
-        \caption{Wireframe der Filmübersicht}
-        \label{04_01_uebersicht}
-    \end{center}
-\end{figure}
-
-\begin{figure}[p]
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=1\textwidth,angle=0]{./wireframes/04_02_detail.png}
         \caption{Wireframe einer Filmdetailansicht für Gäste und nicht angemeldete Benutzer}
@@ -183,7 +174,16 @@ Wie diese aussehen soll, sieht man in der Grafik \ref{04_04_edit}.
     \end{center}
 \end{figure}
 
-\begin{figure}[p]
+\clearpage
+
+\subsubsection{3. Filmdetailansicht für angemeldete Benutzer}
+Die zusätzlichen Funktionen wie die Maske zur Abgabe einer Bewertung und die Bewertungsangabe des Filmes 
+seiner Freunde sehen nur angemeldete Benutzer und ist in der Grafik \ref{04_03_detail_angemeldet} 
+ersichtlich. Die Maske um eine Bewertung abzugeben ist zudem nur zu sehen, sofern der angemeldete
+Benutzer noch keine Bewertung abgegeben hat. In diesem Falle sieht der Benutzer an dieser
+Stelle seine eigene Bewertung und kann diese bearbeiten oder entfernen.
+
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=1\textwidth,angle=0]{./wireframes/04_03_detail_angemeldet.png}
         \caption{Wireframe einer Filmdetailansicht für angemeldete Benutzer}
@@ -191,7 +191,11 @@ Wie diese aussehen soll, sieht man in der Grafik \ref{04_04_edit}.
     \end{center}
 \end{figure}
 
-\begin{figure}[p]
+\subsubsection{4. Bearbeitungsmaske eines Filmes}
+In dieser Ansicht kann man den Namen und die Beschreibung des Filmes bearbeiten.
+Wie diese aussehen soll, sieht man in der Grafik \ref{04_04_edit}.
+
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=1\textwidth,angle=0]{./wireframes/04_04_edit.png}
         \caption{Wireframe der Bearbeitungsmaske eines Filmes}
@@ -226,7 +230,7 @@ und erläutere ihre Funktion im Protoyp.
     \begin{tabular}{llp{10cm}l}
         \toprule Nr & Name & Funktion \\
         \midrule 1 & User & Bildet einen Benutzer im System ab. Ein Benutzer
-                     kann keine bis mehrere Freunde (Friendship) haben. \\
+                     kann keine bis mehrere Freunde (``Friendship'') haben. \\
         \midrule 2 & Friendship & Bildet eine Freundschaft zwischen genau zwei
                      Benutzern im System ab. Zu einer akzeptierten Freundschaft 
                      gehören immer genau zwei Benutzer. \\
@@ -234,7 +238,7 @@ und erläutere ihre Funktion im Protoyp.
                      im System ab. Ein Benutzer kann mehrere Filme bewerten und
                      somit keine bis mehrere Bewertungen haben und eine 
                      existierende Bewertung gehört immer genau zu einem Benutzer 
-                     und einem Film (Movie). \\
+                     und einem Film (``Movie''). \\
         \midrule 4 & Movie & Bildet einen Film im System ab. Ein Film kann keine
                      oder mehrere Bewertungen erhalten. \\
         \bottomrule
@@ -266,15 +270,15 @@ ebenfalls ausschliesslich in englischer Sprache.
             & & Password & S & Beinhaltet das Passwort des Benutzers. \\
             & & Ratings & D & Gibt alle Bewertungen des Benutzers zurück. \\
             & & Pending Friends & D & Gibt alle Freunde zurück, wo die Freundschaftsanfragen
-                                      des Benutzers noch offen ist. \\
+                                      des Benutzers noch offen sind. \\
             & & Direct Friends & D & Gibt alle Freunde zurück, wo die Freundschaftsanfragen
-                                     des Benutzers bereits akzeptier wurde. \\
-            & & Inverse Friends & D & Gibt alle Freunde zurück, wo die Freundschaftsanfrage,
+                                     des Benutzers bereits akzeptiert wurden. \\
+            & & Inverse Friends & D & Gibt alle Freunde zurück, wo die Freundschaftsanfragen,
                                       die an den Benutzer gestellt worden sind, vom Benutzer
                                       akzeptiert wurden. \\
-            & & Friends & D & Gibt alle Freunde, wo die Freundschaftsanfrage akzeptiert wurde,
+            & & Friends & D & Gibt alle Freunde, wo die Freundschaftsanfragen akzeptiert wurden,
                               egal ob die Freundschaftsanfrage direkt oder indirekt gestellt
-                              wurde, zurück. \\
+                              wurden, zurück. \\
         \midrule
             2 & Friendship & User & S & Beinhaltet den Benutzer, der die Freundschaftsanfrage
                                         gestellt hat. \\
@@ -285,14 +289,14 @@ ebenfalls ausschliesslich in englischer Sprache.
             3 & Rating & User & S & Beinhaltet den Benutzer, der die Bewertung erfasst hat. \\
             & & Movie & S & Beinhaltet den Film, der bewertet wurde. \\
             & & Value & S & Beinhaltet die eigentliche Bewertung, also eine ganze Zahl zwischen 1 und 10. \\
-            & & Comment & S & Beinhaltet optional einen Kommentar des Benutzers zur Bewertung. \\
+            & & Comment & S & Beinhaltet optional zur Bewertung einen Kommentar des Benutzers. \\
         \midrule
             4 & Movie & Title & S & Beinhaltet den Namen des Filmes. \\
             & & Description & S & Beinhaltet die Beschreibung des Filmes. \\
             & & Ratings & D & Gibt alle Bewertungen des Filmes zurück. \\
             & & Users & D & Gibt alle Benutzer zurück, die den Film bewertet haben. \\
-            & & Rating All & D & Gibt den Mittelwert aller Bewertungen aller Benutzer zurück. \\
-            & & Rating Friends & D & Gibt den Mittelwert aller Bewertungen der Freunde des 
+            & & Rating All & D & Gibt den Mittelwert über alle Bewertungen aller Benutzer zurück. \\
+            & & Rating Friends & D & Gibt den Mittelwert über alle Bewertungen der Freunde des 
                                  angemeldeten Benutzers zurück. \\
         \bottomrule
     \end{tabular}

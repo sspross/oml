@@ -17,8 +17,8 @@ sogenannte ``Integrierte Entwicklungsumgebung'' \cite{ide}, kurz `IDE', verwende
 Diese bieten meist einen Texteditor, Compiler bzw. Interpreter, Linker, Debugger
 und viele Quelltextformatierungsfunktionen.
 
-Für die Entwicklung von `Ruby on Rails' Webapplikationen hat sich auf ``MacOS X''
-jedoch schon sehr früh ein relativ einfacher und doch sehr hilfreicher Texteditor
+Für die Entwicklung von `Ruby on Rails' Applikationen hat sich auf ``MacOS X''
+jedoch schon sehr früh ein relativ einfacher und doch sehr guter Texteditor
 namens ``Textmate'' durchgesetzt. Er wurde von Anfang an in den offiziellen Videotutorials 
 von `rubyonrails.org' verwendet und auch Ryan Bates, eine Koryphäe in der
 `Ruby on Rails' Welt, arbeitet ausschliesslich damit \cite{ryanbates}. 
@@ -32,8 +32,8 @@ und dem ``Terminal'' Version 2.1.1.
 
 \subsection{Versionsverwaltungssystem}
 Ich habe mich entschlossen mit `Git' zu arbeiten und den Quellcode auf ``GitHub''
-zur Verfügung zu stellen. Für den Prototypen möchte ich mit dem Standard
-``Branching Model'' \cite{branching_model} arbeiten. Das bedeutet, dass ich
+zur Verfügung zu stellen. Für den Prototypen möchte ich mit dem 
+``Standard Branching Model'' \cite{branching_model} arbeiten. Das bedeutet, dass ich
 zwei der sogenannte Äste (``Branches'') führe. Einen für die Entwicklung namens 
 `develop' und einen für die produktive Version namens `master'.
 
@@ -83,8 +83,8 @@ eingehen, da dieser und dessen Verlauf vollständig auf ``GitHub'' unter
 
 Jedoch erläutere ich, welche Zusatzsoftware, auch genannt ``Plugins'' \cite{plugin}, ich 
 verwendet habe und weshalb. Zusätzlich gehe ich auf grössere Herausforderungen,
-die sich mir während der Entwicklung gestellt haben, ein und wie ich sie, wenn
-überhaupt, gelöst habe.
+die sich mir während der Entwicklung gestellt haben, ein und wie ich sie
+gemeistert habe.
 
 \subsection{Zusatzsoftware}
 In der nachstehenden Tabelle \ref{tab:plugins} liste ich die zusätzlich verwendeten
@@ -124,13 +124,13 @@ Veränderungen von `Ruby on Rails' handelte, die nur einen minimalen Einfluss
 auf meinen bestehenden Quellcode hatten.
 
 Gegen Mitte der Entwicklung erschien die `Ruby on Rails' Version 3.0 und wie
-an der Versionsnummer schon zu erkennen ist, wurden darin Grundlegende Dinge
+an der Versionsnummer schon zu erkennen ist, wurden darin grundlegende Dinge
 verändert und verbessert. Da ich den Anspruch erhebe, einen Prototypen zu schreiben
 der auch von Drittentwicklern weiterentwickelt werden kann, musste ich meiner
 Meinung nach zwingend auf die neue Version updaten, damit die Wahrscheinlichkeit
 höher ist, zusätzliche Entwickler zu motivieren.
 
-Dies stellte sich als nicht ganz einfach heraus. Als erstes Versuchte ich
+Dies stellte sich als nicht ganz einfach heraus. Als erstes versuchte ich
 den bestehenden Quellcode wie in den voran gegangenen Version einfach anzupassen.
 Dies reichte jedoch nicht und endete in einer Sackgasse, die sich in meinem
 Quellcode als eigener Branch widerspiegelt, der nicht wieder in den `develop'
@@ -353,7 +353,7 @@ verschiedene Freundschaften eingegangen sind:
 \end{verbatim}
 
 \subsubsection{Film}
-Ein neuer Film hat zu beginn noch keine Bewertungen:
+Ein neuer Film hat zu Beginn noch keine Bewertungen:
 
 \begin{verbatim}
     should "have not any ratings first" do
@@ -411,7 +411,7 @@ Zu Beginn sind zwei Personen nicht befreundet:
     end
 \end{verbatim}
 
-Eine Freundschaft kann von Seiten eines Benutzers beantragt werden:
+Eine Freundschaft kann von einem Benutzer beantragt werden:
 
 \begin{verbatim}
     setup do
