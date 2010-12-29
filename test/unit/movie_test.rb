@@ -25,6 +25,17 @@ class MovieTest < ActiveSupport::TestCase
       assert_equal @movie.rating_all, 5
       assert_equal @movie.rating_friends_of(@user), nil
     end
+    
+    should "also destroy his ratings" do
+      assert_contains Rating.all, @rating
+      
+      @movie.ratings << @rating
+      @movie.save!
+      assert_contains @movie.ratings, @rating
+      
+      @movie.destroy
+      assert_does_not_contain Rating.all, @rating
+    end
   end
 
 end

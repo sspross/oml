@@ -1,0 +1,250 @@
+\subsubsection{Benutzer}
+Ein vollständig abgefüllter Benutzer muss erfolgreich validiert werden können,
+wenn man ihn speichert:
+
+\begin{verbatim}
+    context "Minimal User not saved" do
+      setup { @user = Factory.build(:user) }
+      should("validate") { assert @user.valid? }
+    end
+\end{verbatim}
+
+Da die E-Mailadresse des Benutzers gleichzeitig seinen Benutzernamen darstellt,
+muss sichergestellt werden, dass jede E-Mailadresse nur einmal verwendet werden
+kann:
+
+\begin{verbatim}
+    context "Minimal user" do
+      setup { @user = Factory(:user) }
+      should validate_uniqueness_of(:email)
+    end
+\end{verbatim}
+
+Wenn ein neuer Benutzer erstellt wird, dürfen noch keine Freundschaftsbeziehungen
+bestehen und keine Bewertungen existieren:
+
+\begin{verbatim}
+    context "New user" do
+      setup { @user = Factory(:user) }
+
+      should "have no friends" do
+        assert_equal @user.friends.size, 0
+        assert_equal @user.inverse_friendships.size, 0
+        assert_equal @user.direct_friends.size, 0
+        assert_equal @user.inverse_friends.size, 0
+        assert_equal @user.pending_friends.size, 0
+        assert_equal @user.requested_friendships.size, 0
+      end
+
+      should "have no ratings" do
+        assert_equal @user.ratings.size, 0
+      end
+    end
+\end{verbatim}
+
+\subsubsection{Bewertung}
+Eine Bewertung muss einen gültigen Wert zwischen 1 und 10 enthalten:
+
+\begin{verbatim}
+    should "need a integer value between 1 and 10" do
+      @rating.value = nil
+      assert_equal @rating.valid?, false
+      @rating.value = "adsf"
+      assert_equal @rating.valid?, false
+      @rating.value = 0
+      assert_equal @rating.valid?, false
+      @rating.value = 11
+      assert_equal @rating.valid?, false
+      @rating.value = 5
+      assert_equal @rating.valid?, true
+    end
+\end{verbatim}
+
+Ein Benutzer hat einen Film solange nicht bewertet, bis er ausdrücklich
+eine Bewertung abgibt:
+
+\begin{verbatim}
+    should "be added to a movie and user" do
+      assert_does_not_contain @silvan.ratings, @rating
+      assert_does_not_contain @movie1.ratings, @rating
+      assert_equal @movie1.ratings.size, 0
+      assert_equal @silvan.ratings.size, 0
+      assert_equal @rating.movie, nil
+      assert_equal @rating.user, nil
+      
+      @rating.value = 5
+      @rating.movie = @movie1
+      @rating.user = @silvan
+      @rating.save!
+      
+      @movie1.reload
+      @silvan.reload
+      
+      assert_contains @silvan.ratings, @rating
+      assert_contains @movie1.ratings, @rating
+      assert_equal @movie1.ratings.size, 1
+      assert_equal @silvan.ratings.size, 1
+      assert_equal @rating.movie, @movie1
+      assert_equal @rating.user, @silvan
+    end
+\end{verbatim}
+
+Die Benutzer sehen verschiedene Bewertungen ihres Freundeskreises, da sie
+verschiedene Freundschaften eingegangen sind:
+
+\begin{verbatim}
+    setup do 
+      @silvan = Factory(:user)
+      @stefan = Factory(:user)
+      @friendship = Factory(:friendship, :user => @silvan, 
+                            :friend => @stefan, :approved => true)
+      @marcos = Factory(:user)
+      @friendship = Factory(:friendship, :user => @marcos, 
+                            :friend => @silvan, :approved => true)
+      @muster = Factory(:user)
+      @movie1 = Factory(:movie)
+    end
+    
+    should "have different averages" do
+      assert_equal @movie1.ratings.size, 0
+      assert_equal @movie1.rating_all, nil
+      assert_equal @movie1.rating_friends_of(@silvan), nil 
+      assert_equal @movie1.rating_friends_of(@stefan), nil 
+      assert_equal @movie1.rating_friends_of(@muster), nil 
+      
+      @movie1.ratings << Factory(:rating, :user => @silvan, :value => 4)
+      assert_equal @movie1.ratings.size, 1
+      assert_equal @movie1.rating_all, 4
+      assert_equal @movie1.rating_friends_of(@silvan), nil 
+      assert_equal @movie1.rating_friends_of(@stefan), 4 
+      assert_equal @movie1.rating_friends_of(@muster), nil
+      
+      @movie1.ratings << Factory(:rating, :user => @muster, :value => 6)
+      assert_equal @movie1.ratings.size, 2
+      assert_equal @movie1.rating_all, 5
+      assert_equal @movie1.rating_friends_of(@silvan), nil 
+      assert_equal @movie1.rating_friends_of(@stefan), 4 
+      assert_equal @movie1.rating_friends_of(@muster), nil
+      
+      @movie1.ratings << Factory(:rating, :user => @stefan, :value => 8)
+      assert_equal @movie1.ratings.size, 3
+      assert_equal @movie1.rating_all, 6
+      assert_equal @movie1.rating_friends_of(@silvan), 8 
+      assert_equal @movie1.rating_friends_of(@stefan), 4 
+      assert_equal @movie1.rating_friends_of(@muster), nil
+      
+      @movie1.ratings << Factory(:rating, :user => @marcos, :value => 8)
+      assert_equal @movie1.ratings.size, 4
+      assert_equal @movie1.rating_all, 6.5
+      assert_equal @movie1.rating_friends_of(@silvan), 8
+      assert_equal @movie1.rating_friends_of(@stefan), 4 
+      assert_equal @movie1.rating_friends_of(@muster), nil
+      assert_equal @movie1.rating_friends_of(@marcos), 4
+    end
+\end{verbatim}
+
+\subsubsection{Film}
+Ein neuer Film hat zu Beginn noch keine Bewertungen:
+
+\begin{verbatim}
+    should "have not any ratings first" do
+      assert_does_not_contain @movie.ratings, @rating
+      assert_equal @movie.ratings.size, 0
+      assert_contains @user.ratings, @rating
+    end
+\end{verbatim}
+
+Sobald ein Film bewertet wurde, kann kann ein Mittelwert der Bewertungen
+berechnet werden:
+
+\begin{verbatim}
+    setup do
+       @movie = Factory(:movie)
+       @user = Factory(:user)
+       @rating = Factory(:rating, :user => @user, :value => 5)
+    end
+    
+    should "can get rated" do
+      @movie.ratings << @rating
+      @movie.save!
+      
+      assert_contains @movie.ratings, @rating
+      assert_equal @movie.ratings.size, 1
+      assert_equal @rating.movie, @movie
+      assert_equal @movie.rating_all, 5
+      assert_equal @movie.rating_friends_of(@user), nil
+    end
+\end{verbatim}
+
+Wenn ein Film von der Plattform entfernt wird, werden auch die Bewertungen
+der Benutzer entfernt:
+
+\begin{verbatim}
+    should "also destroy his ratings" do
+      assert_contains Rating.all, @rating
+      
+      @movie.ratings << @rating
+      @movie.save!
+      assert_contains @movie.ratings, @rating
+      
+      @movie.destroy
+      assert_does_not_contain Rating.all, @rating
+    end
+\end{verbatim}
+
+\subsubsection{Freundschaft}
+Zu Beginn sind zwei Personen nicht befreundet:
+
+\begin{verbatim}
+    should "have no friendship first" do
+      assert_does_not_contain @stefan.friends, @silvan
+      assert_does_not_contain @silvan.friends, @stefan
+    end
+\end{verbatim}
+
+Eine Freundschaft kann von einem Benutzer beantragt werden:
+
+\begin{verbatim}
+    setup do
+      @stefan = Factory(:user)
+      @silvan = Factory(:user)
+      @friendship = Factory(:friendship, :user => @silvan, :friend => @stefan)
+    end
+    
+    should "can request a friendship" do
+      assert_contains @silvan.pending_friends, @stefan
+      assert_contains @stefan.requesting_friends, @silvan
+    end
+\end{verbatim}
+
+Die Freundschaftsanfrage kann akzeptiert werden:
+
+\begin{verbatim}
+    should "can accept a friendship request" do
+      request = @stefan.requested_friendships.first
+      request.approved = true
+      request.save!
+      
+      assert_contains @stefan.friends, @silvan
+      assert_contains @silvan.friends, @stefan
+      
+      assert_does_not_contain @silvan.pending_friends, @stefan
+      assert_does_not_contain @stefan.requesting_friends, @silvan
+    end
+\end{verbatim}
+
+Die Freundschaft kann aber auch wieder aufgelöst werden:
+
+\begin{verbatim}
+    should "can end up with a friendship" do
+      friendship = @stefan.inverse_friendships.first
+      friendship.approved = false
+      friendship.save!
+      
+      assert_does_not_contain @stefan.friends, @silvan
+      assert_does_not_contain @silvan.friends, @stefan
+      
+      assert_contains @silvan.pending_friends, @stefan
+      assert_contains @stefan.requesting_friends, @silvan 
+    end
+\end{verbatim}
