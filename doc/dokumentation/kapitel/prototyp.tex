@@ -114,7 +114,7 @@ jeweiligen Projektes auf ``GitHub'' angegeben.
 
 \clearpage
 
-\subsection{Herausforderungen}
+\subsection{Herausforderungen}\label{chp:herausforderungen}
 \subsubsection{Ruby on Rails Versionen}
 Als ich begann den Prototypen zu entwickeln, verwendete ich die damals aktuelle
 `Ruby on Rails' Version 2.3.4. Während der Weiterentwicklung gab es mehrere
@@ -195,7 +195,7 @@ Produktionsumgebung (``Production'') der `mysql' Adapter verwendet wird.
 
 \section{Testen}
 \subsection{Testfälle}
-Meine Testfälle ergeben sich aus denn Muss-Funktionen aus Kapitel~\ref{chp:muss_funktionen}
+Meine Testfälle ergeben sich aus den Muss-Funktionen aus Kapitel~\ref{chp:muss_funktionen}
 und sind in der nachstehenden Tabelle \ref{tab:testfaelle} mit einer klaren Frage
 ausformuliert, die dann getestet werden kann.
 
@@ -238,7 +238,7 @@ Prototypen, der über \url{http://localhost:3000/} erreichbar ist.
 
 \subsubsection{Registrierung}
 Um die Registrierung zu testen, rufe ich den Registrierungsscreen auf und fülle
-den Benutzernamen, das Passwort und die Passwortwiederholung aus und drücke auf
+den Benutzernamen, das Passwort und die Passwortwiederholung aus und drücke dann auf
 `Register'. Den Registrierungsscreen sieht man in der Grafik \ref{test_registrierung_01}
 und die Bestätigung der Registrierung in der Grafik \ref{test_registrierung_02}.
 
@@ -303,10 +303,9 @@ der Button unten rechts `Register' durch meinen Benutzernamen und der Button
 \clearpage
 
 \subsubsection{Filme verfassen}
-Jetzt versuche ich in der Grafik \ref{test_movie_01} einen neuen Film zu erfassen, 
-in dem ich den Filmerfassungsscreen aufrufe, ihn ausfülle und auf `Create Movie' klicke.
-Das mache ich, nachdem ich mich von der Plattform abgemeldet habe, da auch Gäste
-Filme erfassen dürfen.
+Da auch Gäste Filme erfassen dürfen, melde ich mich wieder ab.
+Jetzt versuche ich, wie in der Grafik \ref{test_movie_01} ersichtlich ist, einen neuen Film zu erfassen, 
+indem ich den Filmerfassungsscreen aufrufe, ihn ausfülle und auf `Create Movie' klicke.
 
 \begin{figure}[ht]
     \begin{center}
@@ -316,7 +315,7 @@ Filme erfassen dürfen.
     \end{center}
 \end{figure}
 
-Auf der Grafik \ref{test_movie_02} sieht man, dass das einfügen eines neuen
+Auf der Grafik \ref{test_movie_02} sieht man, dass das Einfügen eines neuen
 Filmes funktioniert hat. Ich sehe zudem, dass der Film bis jetzt noch nicht
 bewertet wurde und dass ich mich anmelden müsste, um eine Bewertung abgeben zu
 können.
@@ -369,9 +368,9 @@ beim existierenden Film auf `delete'. Dies sieht man auf der Grafik \ref{test_mo
     \end{center}
 \end{figure}
 
-Wie man der Grafik \ref{test_movie_06} entnehmen kann, sieht man nach dem löschen
-die Meldung, dass der Film erfolgreich gelöscht wurde und die Liste in der
-Filmübersicht ist wieder leer.
+Wie man der Grafik \ref{test_movie_06} entnehmen kann, sieht man nach dem Löschen
+die Meldung, dass der Film erfolgreich gelöscht wurde. Die Liste in der
+Filmübersicht ist jetzt wieder leer.
 
 \begin{figure}[ht]
     \begin{center}
@@ -460,15 +459,15 @@ Das bedeutet, alle statischen Texte dieser Sprachen sind im Quellcode hinterlegt
 
 Die dynamischen Texte, also zum Beispiel der Name und die Beschreibung eines
 Filmes, müssen in beiden Sprachen erfasst werden. Dazu ruft man den Bearbeitungsscreen
-eines bestehende Filmes auf und wechselt unten links die Sprache der Plattform.
+eines bestehenden Filmes auf und wechselt unten links die Sprache der Plattform.
 Wenn nun der neue Inhalt in der aktuellen Sprache erfasst wird, wird dieser 
 zusätzlich zum Film abgelegt. Ich werde den deutschen Inhalt des bestehendes Filmes 
-auf diese weise nun erfassen.
+auf diese Weise nun erfassen.
 
-In der Grafik \ref{test_internationalisierung_01} sieht man den bestehende Film
+In der Grafik \ref{test_internationalisierung_01} sieht man den bestehenden Film,
 während die Plattform in der Sprache ``Englisch'' dargestellt wird. Dies kann man
 unten links an der gewählten Sprache erkennen. In der Grafik \ref{test_internationalisierung_02}
-ist die Sprache auf ``Deutsch'' gewählt und der Inhalt wie auch die statischen 
+ist die Sprache auf ``Deutsch'' gewählt und der Inhalt, wie auch die statischen 
 Texte werden in ``Deutsch'' dargestellt.
 
 \begin{figure}[ht]
@@ -491,7 +490,7 @@ Texte werden in ``Deutsch'' dargestellt.
 
 \subsubsection{Schnittstelle}
 Um die API zu testen, verwende ich absichtlich ein Programm, das in einer
-anderen Sprache als `Ruby' geschrieben ist. Das Programm das ich verwende
+anderen Sprache als `Ruby' geschrieben ist. Das Programm, das ich verwende
 heisst ``RESTClient'', ist in `Java' geschrieben und ist unter 
 \url{http://code.google.com/p/rest-client/} verfügbar. Ich verwende es in der 
 Version 2.3. Zusätzlich ist zu erwähnen, dass die Daten in beiden verfügbaren
@@ -522,9 +521,9 @@ Film abgerufen werden kann.
 
 \clearpage
 
-Auch kein ein neuer Film über einen `HTTP POST' erstellt werden, dies sieht man
+Auch kann ein neuer Film über einen `HTTP POST' erstellt werden, dies sieht man
 in den Grafiken \ref{test_schnittstelle_03} und \ref{test_schnittstelle_04},
-wo der Film dann in der Filmübersicht ersichtlich ist.
+in welchen der Film dann in der Filmübersicht ersichtlich ist.
 
 \begin{figure}[ht]
     \begin{center}
