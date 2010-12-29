@@ -9,7 +9,7 @@ welches sich auch sehr gut für die Entwicklung von `Ruby on Rails' Webapplikati
 eignet, da ``Apple'' seit Version 10.4.6 von ``MacOS X'' `Ruby' und `Ruby on Rails' 
 mitliefert \cite{macosx}.
 
-Ich werden den Prototypen mit ``MacOS X'' Version 10.6.5 erstellen.
+Ich werde den Prototypen mit ``MacOS X'' Version 10.6.5 erstellen.
 
 \subsection{Integrierte Entwicklungsumgebung}
 Wenn man zum Beispiel eine Applikation mit `Java' entwickelt, wird sehr oft eine
@@ -23,7 +23,7 @@ namens ``Textmate'' durchgesetzt. Er wurde von Anfang an in den offiziellen Vide
 von `rubyonrails.org' verwendet und auch Ryan Bates, eine Koryphäe in der
 `Ruby on Rails' Welt, arbeitet ausschliesslich damit \cite{ryanbates}. 
 
-Hinzu kommt das ``Terminal'', das Kommandozeilen-Programm von ``MacOS X'', mit
+Hinzu kommt ``Terminal'', das Kommandozeilen-Programm von ``MacOS X'', mit
 dem man den lokalen Webserver startet, diverse `Ruby on Rails' Skripte ausführt
 und auch `Git', das Versionsverwaltungssystem, bedient.
 
@@ -116,7 +116,7 @@ jeweiligen Projektes auf ``GitHub'' angegeben.
 
 \subsection{Herausforderungen}
 \subsubsection{Ruby on Rails Versionen}
-Als ich begann den Prototypen zu Entwickeln verwendete ich die damals aktuelle
+Als ich begann den Prototypen zu entwickeln, verwendete ich die damals aktuelle
 `Ruby on Rails' Version 2.3.4. Während der Weiterentwicklung gab es mehrere
 Aktualisierungen von `Ruby on Rails' und ich musste auf die Version 2.3.8
 updaten. Dies war kein Problem, da es sich dabei hauptsächlich um interne
@@ -125,13 +125,13 @@ auf meinen bestehenden Quellcode hatten.
 
 Gegen Mitte der Entwicklung erschien die `Ruby on Rails' Version 3.0 und wie
 an der Versionsnummer schon zu erkennen ist, wurden darin grundlegende Dinge
-verändert und verbessert. Da ich den Anspruch erhebe, einen Prototypen zu schreiben
+verändert und verbessert. Da ich den Anspruch erhebe, einen Prototypen zu schreiben,
 der auch von Drittentwicklern weiterentwickelt werden kann, musste ich meiner
 Meinung nach zwingend auf die neue Version updaten, damit die Wahrscheinlichkeit
 höher ist, zusätzliche Entwickler zu motivieren.
 
 Dies stellte sich als nicht ganz einfach heraus. Als erstes versuchte ich
-den bestehenden Quellcode wie in den voran gegangenen Version einfach anzupassen.
+den bestehenden Quellcode, wie in den voran gegangenen Versionen, einfach anzupassen.
 Dies reichte jedoch nicht und endete in einer Sackgasse, die sich in meinem
 Quellcode als eigener Branch widerspiegelt, der nicht wieder in den `develop'
 Branch zurückgeführt wurde. Dies kann man aus der Grafik \ref{deadend} entnehmen.
@@ -166,16 +166,16 @@ auf der Grafik \ref{rails3} erkennen kann.
 \subsubsection{Deplyoment}
 Beim Deployment, auch ``Softwareverteilung'' \cite{deployment} genannt, stellte 
 sich mir das Problem, dass ich lokal mit einer `SQlite' Datenbank entwickelt habe
-und in der Produktion, also auf dem Zielserver wo dann der Prototyp installiert
+und in der Produktion, also auf dem Zielserver, wo dann der Prototyp installiert
 wird, mit einer `mySQL' Datenbank arbeiten wollte.
 
-`Ruby on Rails' unterstützt von Haus aus mehrere Verschiedene Datenbanktypen und
+`Ruby on Rails' unterstützt von Haus aus mehrere verschiedene Datenbanktypen und
 ist fähig mit `SQlite' und `mySQL' umzugehen. Jedoch ist `mySQL' abhängig vom
 System, auf welchem es installiert wird.
 
 Es war sehr viel Recherche nötig, aber am Schluss konnte ich, unteranderem mit
 der Hilfe meines Betreuers, `mySQL' bei der Installation explizit deaktivieren,
-damit auf dem Zielserver nicht versucht wird eine weiter `mySQL' Instanz zu
+damit auf dem Zielserver nicht versucht wird, eine weiter `mySQL' Instanz zu
 installieren. Zusätzlich konnte ich im sogenannten `Gemfile' elegant festlegen,
 in welcher Umgebung welcher Datenbankadapter verwendet werden soll:
 
@@ -194,279 +194,420 @@ Dadurch wird definiert, dass bei einer lokalen Installation für die Entwicklung
 Produktionsumgebung (``Production'') der `mysql' Adapter verwendet wird.
 
 \section{Testen}
-Zu einem qualitativ hochwertigem Prototyp gehört, dass man ihn so gut wie 
-möglich testet. Ich habe zwischen funktionalen Tests und sogenannten Unit-Tests
-unterschieden und für beide mehrere Testfälle definiert.
-
-Die funktionalen Tests simulieren Zugriffe eines Benutzers auf die Platttform.
-Wie zum Beispiel ``Sich auf der Plattform anemlden'', ``Filme ansehen'', 
-``Einen Film erstellen'' und ``Einen Film entfernen''.
-
-Unit-Tests testen die Objekte bzw. Models der Applikation. Diese können in
-`Ruby on Rails' in einer annähernd natürlich lesbaren Form geschrieben werden
-und deshalb liste ich sie hier in der Dokumentation auf.
-
 \subsection{Testfälle}
-\subsubsection{Benutzer}
-Ein vollständig abgefüllter Benutzer muss erfolgreich validiert werden können,
-wenn man ihn speichert:
+Meine Testfälle ergeben sich aus denn Muss-Funktionen aus Kapitel~\ref{chp:muss_funktionen}
+und sind in der nachstehenden Tabelle \ref{tab:testfaelle} mit einer klaren Frage
+ausformuliert, die dann getestet werden kann.
 
-\begin{verbatim}
-    context "Minimal User not saved" do
-      setup { @user = Factory.build(:user) }
-      should("validate") { assert @user.valid? }
-    end
-\end{verbatim}
+\begin{table}[ht]
+\begin{center}
+    \begin{tabular}{llp{10cm}}
+        \toprule Nr & Muss-Funktion & Testfrage \\
+        \midrule 1 & 1 & Kann sich ein neuer Benutzer mit einem Benutzernamen und
+                 einem Passwort registrieren? \\
+        \midrule 2 & 1 & Kann ein Benutzernamen nur einmal verwendet werden? \\
+        \midrule 3 & 2 & Kann sich der Benutzer mit seinem Benutzernamen und
+                 Passwort anmelden? \\
+        \midrule 4 & 3 & Kann ein neuer Film erfasst werden? \\
+        \midrule 5 & 3 & Kann ein bestehender Film bearbeitet werden? \\
+        \midrule 6 & 3 & Kann ein bestehender Film gelöscht werden? \\
+        \midrule 7 & 4 & Kann die normale Bewertung eines Filmes von allen
+                 Besuchern betrachtet werden? \\
+        \midrule 8 & 5 & Kann ein angemeldeter Benutzer einen Film mit Kommentar
+                 bewerten? \\
+        \midrule 9 & 6 & Kann ein angemeldeter Benutzer die Bewertung über
+                 seinen Freundeskreis sehen? \\
+        \midrule 10 & 7 & Sind die statischen und dynamischen Inhalte in
+                 mehreren Sprachen verfügbar? \\
+        \midrule 11 & 8 & Kann über die API ein Film erfasst werden? \\
+        \midrule 12 & 8 & Kann über die API ein Film bearbeitet werden? \\
+        \midrule 13 & 8 & Kann über die API ein Film gelöscht werden? \\
+        \midrule 14 & 8 & Kann die Bewertung eines Filmes über die API
+                 betrachtet werden? \\
+        \bottomrule
+    \end{tabular}
+    \caption{Testfälle basierend auf denn Muss-Funktionen}
+    \label{tab:testfaelle}
+\end{center}
+\end{table}
 
-Da die E-Mailadresse des Benutzers gleichzeitig seinen Benutzernamen darstellt,
-muss sichergestellt werden, dass jede E-Mailadresse nur einmal verwendet werden
-kann:
+\clearpage
 
-\begin{verbatim}
-    context "Minimal user" do
-      setup { @user = Factory(:user) }
-      should validate_uniqueness_of(:email)
-    end
-\end{verbatim}
+Ich teste nun die definierten Testfälle auf meiner lokalen Instanz des 
+Prototypen, der über \url{http://localhost:3000/} erreichbar ist.
 
-Wenn ein neuer Benutzer erstellt wird, dürfen noch keine Freundschaftsbeziehungen
-bestehen und keine Bewertungen existieren:
+\subsubsection{Registrierung}
+Um die Registrierung zu testen, rufe ich den Registrierungsscreen auf und fülle
+den Benutzernamen, das Passwort und die Passwortwiederholung aus und drücke auf
+`Register'. Den Registrierungsscreen sieht man in der Grafik \ref{test_registrierung_01}
+und die Bestätigung der Registrierung in der Grafik \ref{test_registrierung_02}.
 
-\begin{verbatim}
-    context "New user" do
-      setup { @user = Factory(:user) }
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_registrierung_01.png}
+        \caption{Ausgefüllter Registrierungsscreen}
+        \label{test_registrierung_01}
+    \end{center}
+\end{figure}
 
-      should "have no friends" do
-        assert_equal @user.friends.size, 0
-        assert_equal @user.inverse_friendships.size, 0
-        assert_equal @user.direct_friends.size, 0
-        assert_equal @user.inverse_friends.size, 0
-        assert_equal @user.pending_friends.size, 0
-        assert_equal @user.requested_friendships.size, 0
-      end
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_registrierung_02.png}
+        \caption{Bestätigung der Registrierung}
+        \label{test_registrierung_02}
+    \end{center}
+\end{figure}
 
-      should "have no ratings" do
-        assert_equal @user.ratings.size, 0
-      end
-    end
-\end{verbatim}
+Wie den Grafiken \ref{test_registrierung_01} und \ref{test_registrierung_02} zu 
+entnehmen ist, hat die Registrierung funktioniert und ich versuche nun, mich 
+nochmals mit dem selben Benutzernamen zu registrieren.
 
-\subsubsection{Bewertung}
-Eine Bewertung muss einen gültigen Wert zwischen 1 und 10 enthalten:
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_registrierung_03.png}
+        \caption{Meldung, dass der Benutzername schon verwendet wird}
+        \label{test_registrierung_03}
+    \end{center}
+\end{figure}
 
-\begin{verbatim}
-    should "need a integer value between 1 and 10" do
-      @rating.value = nil
-      assert_equal @rating.valid?, false
-      @rating.value = "adsf"
-      assert_equal @rating.valid?, false
-      @rating.value = 0
-      assert_equal @rating.valid?, false
-      @rating.value = 11
-      assert_equal @rating.valid?, false
-      @rating.value = 5
-      assert_equal @rating.valid?, true
-    end
-\end{verbatim}
+In der Grafik \ref{test_registrierung_03} werde ich darauf hingewiesen, dass
+der Benutzername schon verwendet wurde.
 
-Ein Benutzer hat einen Film solange nicht bewertet, bis er ausdrücklich
-eine Bewertung abgibt:
+\clearpage
 
-\begin{verbatim}
-    should "be added to a movie and user" do
-      assert_does_not_contain @silvan.ratings, @rating
-      assert_does_not_contain @movie1.ratings, @rating
-      assert_equal @movie1.ratings.size, 0
-      assert_equal @silvan.ratings.size, 0
-      assert_equal @rating.movie, nil
-      assert_equal @rating.user, nil
-      
-      @rating.value = 5
-      @rating.movie = @movie1
-      @rating.user = @silvan
-      @rating.save!
-      
-      @movie1.reload
-      @silvan.reload
-      
-      assert_contains @silvan.ratings, @rating
-      assert_contains @movie1.ratings, @rating
-      assert_equal @movie1.ratings.size, 1
-      assert_equal @silvan.ratings.size, 1
-      assert_equal @rating.movie, @movie1
-      assert_equal @rating.user, @silvan
-    end
-\end{verbatim}
+\subsubsection{Anmeldung}
+In der Grafik \ref{test_anmeldung_01} versuche ich mich nun mit meinem eben
+registrierten Benutzer anzumelden.
 
-Die Benutzer sehen verschiedene Bewertungen ihres Freundeskreises, da sie
-verschiedene Freundschaften eingegangen sind:
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_anmeldung_01.png}
+        \caption{Ausgefüllter Anmeldescreen}
+        \label{test_anmeldung_01}
+    \end{center}
+\end{figure}
 
-\begin{verbatim}
-    setup do 
-      @silvan = Factory(:user)
-      @stefan = Factory(:user)
-      @friendship = Factory(:friendship, :user => @silvan, 
-                            :friend => @stefan, :approved => true)
-      @marcos = Factory(:user)
-      @friendship = Factory(:friendship, :user => @marcos, 
-                            :friend => @silvan, :approved => true)
-      @muster = Factory(:user)
-      @movie1 = Factory(:movie)
-    end
-    
-    should "have different averages" do
-      assert_equal @movie1.ratings.size, 0
-      assert_equal @movie1.rating_all, nil
-      assert_equal @movie1.rating_friends_of(@silvan), nil 
-      assert_equal @movie1.rating_friends_of(@stefan), nil 
-      assert_equal @movie1.rating_friends_of(@muster), nil 
-      
-      @movie1.ratings << Factory(:rating, :user => @silvan, :value => 4)
-      assert_equal @movie1.ratings.size, 1
-      assert_equal @movie1.rating_all, 4
-      assert_equal @movie1.rating_friends_of(@silvan), nil 
-      assert_equal @movie1.rating_friends_of(@stefan), 4 
-      assert_equal @movie1.rating_friends_of(@muster), nil
-      
-      @movie1.ratings << Factory(:rating, :user => @muster, :value => 6)
-      assert_equal @movie1.ratings.size, 2
-      assert_equal @movie1.rating_all, 5
-      assert_equal @movie1.rating_friends_of(@silvan), nil 
-      assert_equal @movie1.rating_friends_of(@stefan), 4 
-      assert_equal @movie1.rating_friends_of(@muster), nil
-      
-      @movie1.ratings << Factory(:rating, :user => @stefan, :value => 8)
-      assert_equal @movie1.ratings.size, 3
-      assert_equal @movie1.rating_all, 6
-      assert_equal @movie1.rating_friends_of(@silvan), 8 
-      assert_equal @movie1.rating_friends_of(@stefan), 4 
-      assert_equal @movie1.rating_friends_of(@muster), nil
-      
-      @movie1.ratings << Factory(:rating, :user => @marcos, :value => 8)
-      assert_equal @movie1.ratings.size, 4
-      assert_equal @movie1.rating_all, 6.5
-      assert_equal @movie1.rating_friends_of(@silvan), 8
-      assert_equal @movie1.rating_friends_of(@stefan), 4 
-      assert_equal @movie1.rating_friends_of(@muster), nil
-      assert_equal @movie1.rating_friends_of(@marcos), 4
-    end
-\end{verbatim}
+Wie man der Grafik \ref{test_anmeldung_02} entnehmen kann, konnte ich mich
+erfolgreich auf der Plattform anmelden. Dies ist zusätzlich erkennbar, da 
+der Button unten rechts `Register' durch meinen Benutzernamen und der Button
+`Login' durch den Button `Logout' ersetzt wurde.
 
-\subsubsection{Film}
-Ein neuer Film hat zu Beginn noch keine Bewertungen:
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_anmeldung_02.png}
+        \caption{Homescreen nach der Anmeldung}
+        \label{test_anmeldung_02}
+    \end{center}
+\end{figure}
 
-\begin{verbatim}
-    should "have not any ratings first" do
-      assert_does_not_contain @movie.ratings, @rating
-      assert_equal @movie.ratings.size, 0
-      assert_contains @user.ratings, @rating
-    end
-\end{verbatim}
+\clearpage
 
-Sobald ein Film bewertet wurde, kann kann ein Mittelwert der Bewertungen
-berechnet werden:
+\subsubsection{Filme verfassen}
+Jetzt versuche ich in der Grafik \ref{test_movie_01} einen neuen Film zu erfassen, 
+in dem ich den Filmerfassungsscreen aufrufe, ihn ausfülle und auf `Create Movie' klicke.
+Das mache ich, nachdem ich mich von der Plattform abgemeldet habe, da auch Gäste
+Filme erfassen dürfen.
 
-\begin{verbatim}
-    setup do
-       @movie = Factory(:movie)
-       @user = Factory(:user)
-       @rating = Factory(:rating, :user => @user, :value => 5)
-    end
-    
-    should "can get rated" do
-      @movie.ratings << @rating
-      @movie.save!
-      
-      assert_contains @movie.ratings, @rating
-      assert_equal @movie.ratings.size, 1
-      assert_equal @rating.movie, @movie
-      assert_equal @movie.rating_all, 5
-      assert_equal @movie.rating_friends_of(@user), nil
-    end
-\end{verbatim}
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_movie_01.png}
+        \caption{Filmerfassungsscreen}
+        \label{test_movie_01}
+    \end{center}
+\end{figure}
 
-Wenn ein Film von der Plattform entfernt wird, werden auch die Bewertungen
-der Benutzer entfernt:
+Auf der Grafik \ref{test_movie_02} sieht man, dass das einfügen eines neuen
+Filmes funktioniert hat. Ich sehe zudem, dass der Film bis jetzt noch nicht
+bewertet wurde und dass ich mich anmelden müsste, um eine Bewertung abgeben zu
+können.
 
-\begin{verbatim}
-    should "also destroy his ratings" do
-      assert_contains Rating.all, @rating
-      
-      @movie.ratings << @rating
-      @movie.save!
-      assert_contains @movie.ratings, @rating
-      
-      @movie.destroy
-      assert_does_not_contain Rating.all, @rating
-    end
-\end{verbatim}
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_movie_02.png}
+        \caption{Erfolgreich erfasster Film}
+        \label{test_movie_02}
+    \end{center}
+\end{figure}
 
-\subsubsection{Freundschaft}
-Zu Beginn sind zwei Personen nicht befreundet:
+\clearpage
 
-\begin{verbatim}
-    should "have no friendship first" do
-      assert_does_not_contain @stefan.friends, @silvan
-      assert_does_not_contain @silvan.friends, @stefan
-    end
-\end{verbatim}
+Jetzt werde ich versuchen, den Film zu bearbeiten. Dazu rufe ich den Bearbeitungsscreen
+auf. In der Grafik \ref{test_movie_03} sieht man, dass die bestehend Informationen
+schon abgefüllt sind. Ich passe die Beschreibung an und versuche den Film
+zu speichern.
 
-Eine Freundschaft kann von einem Benutzer beantragt werden:
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_movie_03.png}
+        \caption{Bearbeitungsscreen eines Filmes}
+        \label{test_movie_03}
+    \end{center}
+\end{figure}
 
-\begin{verbatim}
-    setup do
-      @stefan = Factory(:user)
-      @silvan = Factory(:user)
-      @friendship = Factory(:friendship, :user => @silvan, :friend => @stefan)
-    end
-    
-    should "can request a friendship" do
-      assert_contains @silvan.pending_friends, @stefan
-      assert_contains @stefan.requesting_friends, @silvan
-    end
-\end{verbatim}
+In der Grafik \ref{test_movie_04} sieht man, dass das bearbeiten des Filmes
+funktioniert hat und nun in der Beschreibung der Name der Schauspielerin ergänzt
+wurde.
 
-Die Freundschaftsanfrage kann akzeptiert werden:
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_movie_04.png}
+        \caption{Erfolgreich bearbeiteter Film}
+        \label{test_movie_04}
+    \end{center}
+\end{figure}
 
-\begin{verbatim}
-    should "can accept a friendship request" do
-      request = @stefan.requested_friendships.first
-      request.approved = true
-      request.save!
-      
-      assert_contains @stefan.friends, @silvan
-      assert_contains @silvan.friends, @stefan
-      
-      assert_does_not_contain @silvan.pending_friends, @stefan
-      assert_does_not_contain @stefan.requesting_friends, @silvan
-    end
-\end{verbatim}
+\clearpage
 
-Die Freundschaft kann aber auch wieder aufgelöst werden:
+Um zu testen, ob ein Film gelöscht werden kann, klicke ich in der Filmübersicht
+beim existierenden Film auf `delete'. Dies sieht man auf der Grafik \ref{test_movie_05}.
 
-\begin{verbatim}
-    should "can end up with a friendship" do
-      friendship = @stefan.inverse_friendships.first
-      friendship.approved = false
-      friendship.save!
-      
-      assert_does_not_contain @stefan.friends, @silvan
-      assert_does_not_contain @silvan.friends, @stefan
-      
-      assert_contains @silvan.pending_friends, @stefan
-      assert_contains @stefan.requesting_friends, @silvan 
-    end
-\end{verbatim}
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_movie_05.png}
+        \caption{Filmübersicht}
+        \label{test_movie_05}
+    \end{center}
+\end{figure}
+
+Wie man der Grafik \ref{test_movie_06} entnehmen kann, sieht man nach dem löschen
+die Meldung, dass der Film erfolgreich gelöscht wurde und die Liste in der
+Filmübersicht ist wieder leer.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_movie_06.png}
+        \caption{Erfolgreich gelöschter Film}
+        \label{test_movie_06}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+\subsubsection{Bewertung abgeben}
+Ich erfasse den soeben entfernten Film erneut und erfasse zusätzlich zwei Benutzer
+`Stefan' und `Roman'. Ich gebe mit allen Benutzern eine Bewertung ab. In der Grafik
+\ref{test_bewertung_01} sieht man die Maske zur Abgabe einer Bewertung, sofern man
+angemeldet ist.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_bewertung_01.png}
+        \caption{Maske zur Erfassung einer Bewertung}
+        \label{test_bewertung_01}
+    \end{center}
+\end{figure}
+
+Sobald man die Bewertung abgegeben hat, erscheint, wie auf der Grafik \ref{test_bewertung_02}
+zu sehen ist, die Detailansicht des Filmes erneut, jedoch nun mit einer Bewertung
+und dem Hinweis, dass ich bereits eine Bewertung abgegeben habe.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_bewertung_02.png}
+        \caption{Erfolgreich erfasste Bewertung}
+        \label{test_bewertung_02}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+\subsubsection{Bewertung sehen}
+Ich melde mich von der Plattform ab um zu überprüfen, ob Gäste die Bewertung
+des Filmes auch sehen können. Dies funktioniert und ist in der Grafik \ref{test_bewertung_03}
+zu sehen. Unten rechts kann man am `Login' Button erkennen, dass zur Zeit
+kein Benutzer angemeldet ist.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_bewertung_03.png}
+        \caption{Bewertungsansicht für Gäste}
+        \label{test_bewertung_03}
+    \end{center}
+\end{figure}
+
+\subsubsection{Bewertung Freundeskreis}
+Damit ich die Bewertungsfunktionen richtig testen kann, schliesse ich
+zwischen meinem Benutzer und dem Benutzer `Stefan' Freundschaft. Danach sollten 
+die zwei befreundeten Benutzer ein zusätzliches Rating sehen, welches der dritte 
+Benutzer nicht sieht. 
+
+Wie man der Grafik \ref{test_bewertung_04} entnehmen kann, sieht der Benutzer
+`Roman' nur die Bewertung über alle Benutzer und seine eigene. In der Grafik
+\ref{test_bewertung_05} ist zu sehen, dass mein Benutzer zusätzlich eine
+Bewertung seines Freundeskreises sieht.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_bewertung_04.png}
+        \caption{Ansicht des Benutzers `Roman'}
+        \label{test_bewertung_04}
+    \end{center}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_bewertung_05.png}
+        \caption{Ansicht meines Benutzers}
+        \label{test_bewertung_05}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+\subsubsection{Internationalisierung}
+Ich habe die Plattform für die Sprachen ``Deutsch'' und ``Englisch'' vorbereitet.
+Das bedeutet, alle statischen Texte dieser Sprachen sind im Quellcode hinterlegt.
+
+Die dynamischen Texte, also zum Beispiel der Name und die Beschreibung eines
+Filmes, müssen in beiden Sprachen erfasst werden. Dazu ruft man den Bearbeitungsscreen
+eines bestehende Filmes auf und wechselt unten links die Sprache der Plattform.
+Wenn nun der neue Inhalt in der aktuellen Sprache erfasst wird, wird dieser 
+zusätzlich zum Film abgelegt. Ich werde den deutschen Inhalt des bestehendes Filmes 
+auf diese weise nun erfassen.
+
+In der Grafik \ref{test_internationalisierung_01} sieht man den bestehende Film
+während die Plattform in der Sprache ``Englisch'' dargestellt wird. Dies kann man
+unten links an der gewählten Sprache erkennen. In der Grafik \ref{test_internationalisierung_02}
+ist die Sprache auf ``Deutsch'' gewählt und der Inhalt wie auch die statischen 
+Texte werden in ``Deutsch'' dargestellt.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_internationalisierung_01.png}
+        \caption{Filmansicht in ``Englisch''}
+        \label{test_internationalisierung_01}
+    \end{center}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_internationalisierung_02.png}
+        \caption{Filmansicht in ``Deutsch''}
+        \label{test_internationalisierung_02}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+\subsubsection{Schnittstelle}
+Um die API zu testen, verwende ich absichtlich ein Programm, das in einer
+anderen Sprache als `Ruby' geschrieben ist. Das Programm das ich verwende
+heisst ``RESTClient'', ist in `Java' geschrieben und ist unter 
+\url{http://code.google.com/p/rest-client/} verfügbar. Ich verwende es in der 
+Version 2.3. Zusätzlich ist zu erwähnen, dass die Daten in beiden verfügbaren
+Sprachen bezogen werden könne. Dies wird über die URL gesteuert. 
+
+Wie man in der Grafik \ref{test_schnittstelle_01} erkennen kann, wird ein
+sauberes XML zurückgeliefert, wenn man die Filme über einen `HTTP GET' beziehen 
+möchte. Auch sieht man, dass das Rating ebenfalls mitgeliefert wird.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_schnittstelle_01.png}
+        \caption{API `HTTP GET' der Filme}
+        \label{test_schnittstelle_01}
+    \end{center}
+\end{figure}
+
+In der Grafik \ref{test_schnittstelle_02} sieht man, dass auch ein einzelner
+Film abgerufen werden kann.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_schnittstelle_02.png}
+        \caption{API `HTTP GET' eines Filmes}
+        \label{test_schnittstelle_02}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+Auch kein ein neuer Film über einen `HTTP POST' erstellt werden, dies sieht man
+in den Grafiken \ref{test_schnittstelle_03} und \ref{test_schnittstelle_04},
+wo der Film dann in der Filmübersicht ersichtlich ist.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_schnittstelle_03.png}
+        \caption{API `HTTP POST' eines Filmes}
+        \label{test_schnittstelle_03}
+    \end{center}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_schnittstelle_04.png}
+        \caption{Filmübersicht mit über die API eingefügtem Film}
+        \label{test_schnittstelle_04}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+Der eingefügte Film kann auch wieder über einen `HTTP PUT' bearbeitet werden,
+was in den Grafiken \ref{test_schnittstelle_05} und \ref{test_schnittstelle_06}
+zu erkennen ist.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_schnittstelle_05.png}
+        \caption{API `HTTP PUT' eines Filmes}
+        \label{test_schnittstelle_05}
+    \end{center}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,angle=0]{./bilder/tests/test_schnittstelle_06.png}
+        \caption{Filmübersicht mit über die API geändertem Film}
+        \label{test_schnittstelle_06}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+Auch kann ein Film über einen `HTTP DELETE' gelöscht werden. Ich verzichte
+hier auf zusätzliche Grafiken, da sie nicht viel Aussagekraft haben.
 
 \subsection{Testresultate}
-Alle aufgeführten Unit-Testfälle und nicht aufgeführten funktionalen Testfälle
-sind zum Zeitpunkt der Abgabe dieser Arbeit erfolgreich durchlaufen worden, 
-wie man der Grafik \ref{testresultate} entnehmen kann.
+In der nachstehenden Tabelle \ref{tab:testresultate} gehe ich noch einmal
+durch meine in der Tabelle \ref{tab:testfaelle} definierten Testfälle
+und ergänze, ob sie erfolgreich waren oder nicht.
+
+\begin{table}[ht]
+\begin{center}
+    \begin{tabular}{llc}
+        \toprule Nr & Muss-Funktions Nr & Erfolgreich \\
+        \midrule 1 & 1 & ja \\
+        \midrule 2 & 1 & ja \\
+        \midrule 3 & 2 & ja \\
+        \midrule 4 & 3 & ja \\
+        \midrule 5 & 3 & ja \\
+        \midrule 6 & 3 & ja \\
+        \midrule 7 & 4 & ja \\
+        \midrule 8 & 5 & ja \\
+        \midrule 9 & 6 & ja \\
+        \midrule 10 & 7 & ja \\
+        \midrule 11 & 8 & ja \\
+        \midrule 12 & 8 & ja \\
+        \midrule 13 & 8 & ja \\
+        \midrule 14 & 8 & ja \\
+        \bottomrule
+    \end{tabular}
+    \caption{Testresultate}
+    \label{tab:testresultate}
+\end{center}
+\end{table}
+
+Somit sind alle meine Muss-Funktionen erfüllt und ich habe mein Ziel erreicht.
+Zusätzlich zu den Testresultaten habe ich noch einen Screenshot meiner
+Unit-Test Ergebnisse zum Zeitpunkt der Abgabe der Arbeit als Grafik \ref{unit_testresultate}
+beigefügt.
 
 \begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.9\textwidth,angle=0]{./bilder/testresultate.png}
         \caption{Testresultat vom 28.12.2010}
-        \label{testresultate}
+        \label{unit_testresultate}
     \end{center}
 \end{figure}

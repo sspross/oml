@@ -5,7 +5,7 @@ wiederum unterteile ich in `Muss' und `Kann' Funktionen. Erstere sollen
 zwingend im Prototypen umgesetzt werden, die anderen behalte ich mir vor, je
 nach noch zur Verfügung stehender Zeit umzusetzen oder nicht.
 
-\subsection{Muss-Funktionen}
+\subsection{Muss-Funktionen}\label{chp:muss_funktionen}
 In der nachstehenden Tabelle \ref{tab:muss_funktionen} sind alle umzusetzenden 
 Funktionen aufgelistet, nummeriert und näher beschrieben:
 
@@ -26,7 +26,7 @@ Funktionen aufgelistet, nummeriert und näher beschrieben:
         \midrule 6 & Bewertung Freundeskreis & Angemeldete Benutzer sehen zur normalen Bewertung zusätzlich
                      die Bewertung ihres Freundeskreises. \\
         \midrule 7 & Internationalisierung & Alle Inhalte können in deutscher und englischer
-                     Sprache erfasst werden \\
+                     Sprache erfasst werden. \\
         \midrule 8 & Schnittstelle & Die Funktionen 3 und 4 stehen ebenfalls in einer API 
                      zur Verfügung. \\
         \bottomrule
@@ -36,7 +36,7 @@ Funktionen aufgelistet, nummeriert und näher beschrieben:
 \end{center}
 \end{table}
 
-Anmerkung zur Funktion Nr. 7: Eine API (``Application-Programming-Interface''), auf 
+Anmerkung zur Funktion Nr. 8: Eine API (``Application-Programming-Interface''), auf 
 Deutsch ``Programmierschnittstelle'', ist ein Programmteil, der von einem Softwaresystem 
 anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird \cite{api}.
 
@@ -77,7 +77,7 @@ ich in Wireframes \cite{wireframe} abgebildet, damit die eigentliche Umsetzung
 einfacher fällt.
 
 \subsection{Grundlayout}
-Als Basis einer Webapplikation dient ein gut durchdachtes Grundlayout, welches
+Als Basis einer Webapplikation dient ein sorgfältig durchdachtes Grundlayout, welches
 Funktionen und Informationen, die jederzeit zur Verfügung stehen müssen, darstellt.
 Wie zum Beispiel die Navigation, eine Registrier- und Anmeldefunktion und der Sprachwechsel.
 
@@ -85,7 +85,7 @@ In der Grafik \ref{01_grundlayout} ist ein Browserfenster abgebildet, das die
 fiktive Adresse \url{http://oml.orwell.ch/} aufgerufen und geladen hat. Auf der Grafik
 ist die Navigation mit drei fiktiven Menüpunkten, zwei zur Verfügung stehenden 
 Sprachen und einem Registrierungs- und Anmeldebutton zu sehen. Auch ist klar erkennbar,
-wo sich der Inhalt der jeweiligen Seiten befinden wird. Zusätzlich sieht man, welches
+wo sich der Inhalt der jeweiligen Seiten befinden wird. Zusätzlich sieht der Betrachter, welches
 Menü und welche Sprache zur Zeit aktiv ist.
 
 \begin{figure}[ht]
@@ -101,7 +101,7 @@ aktiven und inaktiven Menüs werden ebenfalls der aktuellen Seite angepasst.
 
 \subsection{Registrierung}
 In der Grafik \ref{02_registrierung} ist die Registrierung abgebildet. Um sich
-auf der Plattform zu registrieren benötigt man einen Benutzername, der gleichzeitig
+auf der Plattform zu registrieren, benötigt man einen Benutzername, der gleichzeitig
 die E-Mailadresse des Benutzers ist. Hinzu kommt ein Passwort, dass man zur 
 Bestätigung wiederholt eingeben muss.
 
@@ -159,7 +159,7 @@ Funktionen verfügbar:
 
 Zusätzlich zur Auflistung existiert ein Button zur Erstellung eines neuen Filmes.
 Ich verzichte auf die Maske zur Erstellung eines neuen Filmes, da diese genau gleich
-aussehen wird wie die Bearbeitungsmaske, jedoch ohne bestehendem Inhalt.
+aussehen wird, wie die Bearbeitungsmaske, jedoch ohne bestehendem Inhalt.
 
 \subsubsection{2. Filmdetailansicht}
 In der Grafik \ref{04_02_detail} sieht man die Detailansicht eines Filmes inklusive Bewertung
@@ -179,7 +179,7 @@ unangemeldete Benutzer sichtbar.
 \subsubsection{3. Filmdetailansicht für angemeldete Benutzer}
 Die zusätzlichen Funktionen wie die Maske zur Abgabe einer Bewertung und die Bewertungsangabe des Filmes 
 seiner Freunde sehen nur angemeldete Benutzer und ist in der Grafik \ref{04_03_detail_angemeldet} 
-ersichtlich. Die Maske um eine Bewertung abzugeben ist zudem nur zu sehen, sofern der angemeldete
+ersichtlich. Die Maske, um eine Bewertung abzugeben, ist zudem nur sichtbar, sofern der angemeldete
 Benutzer noch keine Bewertung abgegeben hat. In diesem Falle sieht der Benutzer an dieser
 Stelle seine eigene Bewertung und kann diese bearbeiten oder entfernen.
 
